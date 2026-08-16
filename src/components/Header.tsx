@@ -143,7 +143,7 @@ export default function Header() {
             >
               {site.contact.phone}
             </a>
-            <Magnetic strength={0.22} className="hidden sm:inline-flex">
+            <Magnetic strength={0.22} className="!hidden sm:!inline-flex">
               <Link
                 href={site.cta.primary.href}
                 className={cn("btn-md", dark ? "btn-light" : "btn-primary")}

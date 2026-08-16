@@ -80,7 +80,8 @@ export default function Hero() {
             ))}
           </span>
           <p className="eyebrow text-paper/60">
-            Annapolis, Maryland · Telehealth statewide
+            <span className="hidden sm:inline">Annapolis, Maryland · Telehealth statewide</span>
+            <span className="sm:hidden">Annapolis, MD · Telehealth</span>
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
 /** Subtle magnetic pull toward the cursor. Desktop / fine-pointer only. */
 export default function Magnetic({
@@ -64,8 +65,10 @@ export default function Magnetic({
     };
   }, [strength]);
 
+  // NOTE: display is set by class, not inline style, so callers can hide the
+  // wrapper responsively (e.g. `hidden sm:inline-flex`) without being overridden.
   return (
-    <span ref={ref} className={className} style={{ display: "inline-flex", willChange: "transform" }}>
+    <span ref={ref} className={cn("inline-flex will-change-transform", className)}>
       {children}
     </span>
   );

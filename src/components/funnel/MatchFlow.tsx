@@ -113,7 +113,7 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
   const [state, setState] = useState<"idle" | "sending" | "error">("idle");
 
   const current = STEPS[step];
-  const progress = phase === "result" ? 1 : step / STEPS.length;
+  const progress = phase === "result" ? 1 : (step + 0.4) / STEPS.length;
 
   const recommended = useMemo(() => {
     const picked = answers.concerns ?? [];
