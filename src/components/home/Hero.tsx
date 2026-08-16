@@ -55,7 +55,7 @@ export default function Hero() {
         </video>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/40" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 

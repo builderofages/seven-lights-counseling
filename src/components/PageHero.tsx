@@ -51,7 +51,7 @@ export default function PageHero({
       {video && (
         <div ref={media} className="absolute inset-0 will-change-transform">
           <video
-            className="h-full w-full object-cover opacity-50"
+            className="h-full w-full object-cover opacity-40"
             autoPlay
             muted
             loop
@@ -71,7 +71,8 @@ export default function PageHero({
         className="pointer-events-none absolute inset-0 h-full w-full opacity-50 mix-blend-screen"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/25 to-transparent" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       <div className="shell relative pb-16 pt-40">

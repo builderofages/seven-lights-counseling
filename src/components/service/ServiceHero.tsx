@@ -54,7 +54,7 @@ export default function ServiceHero({
     <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-ink text-paper">
       <div ref={media} className="absolute inset-0 will-change-transform">
         <video
-          className="h-full w-full object-cover opacity-[0.55]"
+          className="h-full w-full object-cover opacity-[0.42]"
           autoPlay
           muted
           loop
@@ -73,8 +73,8 @@ export default function ServiceHero({
         className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.55] mix-blend-screen"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/35 to-transparent" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       {/* breathing light rail — the service's own lights, aligned */}
