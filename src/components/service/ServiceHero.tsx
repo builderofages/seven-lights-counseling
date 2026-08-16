@@ -53,7 +53,7 @@ export default function ServiceHero({
     <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-contrast text-onc">
       <div ref={media} className="absolute inset-0 will-change-transform">
         <video
-          className="h-full w-full object-cover opacity-[0.42]"
+          className="h-full w-full object-cover opacity-[0.72]"
           autoPlay
           muted
           loop
@@ -69,11 +69,11 @@ export default function ServiceHero({
       <ServiceAura
         lightIds={service.lights}
         seed={seed}
-        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.55] mix-blend-screen"
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.9] mix-blend-screen"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/75 to-scrim/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-scrim/90 via-scrim/35 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/45 to-scrim/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-scrim/85 via-scrim/25 to-transparent" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       {/* breathing light rail — the service's own lights, aligned */}

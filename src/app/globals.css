@@ -109,7 +109,22 @@
   }
 
   .eyebrow {
-    @apply font-sans text-eyebrow font-semibold uppercase text-accent;
+    @apply relative inline-flex items-center gap-3 font-sans text-eyebrow font-semibold
+           uppercase text-accent;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-[3px] w-8 shrink-0 rounded-full;
+    background: linear-gradient(
+      90deg,
+      #8c4a44 0%,
+      #b0703f 17%,
+      #be9a4e 33%,
+      #6e8663 50%,
+      #4e7183 67%,
+      #4b527b 83%,
+      #6d5578 100%
+    );
   }
 
   .rule {

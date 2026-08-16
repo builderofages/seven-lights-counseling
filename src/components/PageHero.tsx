@@ -51,7 +51,7 @@ export default function PageHero({
       {video && (
         <div ref={media} className="absolute inset-0 will-change-transform">
           <video
-            className="h-full w-full object-cover opacity-40"
+            className="h-full w-full object-cover opacity-70"
             autoPlay
             muted
             loop
@@ -68,11 +68,11 @@ export default function PageHero({
       <ServiceAura
         lightIds={lightIds}
         seed={seed}
-        className="pointer-events-none absolute inset-0 h-full w-full opacity-50 mix-blend-screen"
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.85] mix-blend-screen"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/75 to-scrim/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-scrim/80 via-scrim/25 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/45 to-scrim/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-scrim/85 via-scrim/25 to-transparent" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       <div className="shell relative pb-16 pt-40">

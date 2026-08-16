@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { track } from "@/lib/analytics";
+import ServiceAura from "@/components/service/ServiceAura";
 
 const SPECTRUM = ["#8C4A44", "#B0703F", "#BE9A4E", "#6E8663", "#4E7183", "#4B527B", "#6D5578"];
 
@@ -54,8 +55,13 @@ export default function Hero() {
         </video>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/60 to-scrim/40" />
-      <div className="absolute inset-0 bg-gradient-to-r from-scrim/70 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/40 to-scrim/15" />
+      <div className="absolute inset-0 bg-gradient-to-r from-scrim/80 via-scrim/20 to-transparent" />
+      <ServiceAura
+        lightIds={[2, 3, 4, 7]}
+        seed={0}
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.8] mix-blend-screen"
+      />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       {/* ---- content ---- */}

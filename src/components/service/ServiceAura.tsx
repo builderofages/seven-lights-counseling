@@ -69,7 +69,7 @@ export default function ServiceAura({
         phase: (k * 2.399) % (Math.PI * 2),
         // slow, unequal periods so the pattern never visibly repeats
         speed: 0.055 + ((k * 0.017) % 0.045),
-        size: 0.3 + ((k * 0.11) % 0.26),
+        size: 0.36 + ((k * 0.11) % 0.3),
       };
     });
 
@@ -102,8 +102,8 @@ export default function ServiceAura({
         const r = base * o.size * (0.82 + breath * 0.3);
 
         const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-        g.addColorStop(0, hexA(o.color, 0.5 - i * 0.03));
-        g.addColorStop(0.42, hexA(o.color, 0.16));
+        g.addColorStop(0, hexA(o.color, 0.62 - i * 0.03));
+        g.addColorStop(0.42, hexA(o.color, 0.24));
         g.addColorStop(1, hexA(o.color, 0));
         ctx.fillStyle = g;
         ctx.beginPath();
