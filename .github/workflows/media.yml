@@ -1,0 +1,59 @@
+name: Sync media assets
+
+# The rendered stills and films are produced with Higgsfield and served from
+# its CDN. This workflow pulls them down, encodes them for the web, and commits
+# them into public/media so the repository is self-contained and a fresh clone
+# works with no network access.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "media.manifest.json"
+      - "scripts/fetch-media.mjs"
+      - ".github/workflows/media.yml"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Re-download every asset, ignoring what is already committed"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: media-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install sharp
+        run: npm install --no-save sharp@0.33.5
+
+      - name: Fetch and encode media
+        run: node scripts/fetch-media.mjs ${{ inputs.force && '--force' || '' }}
+
+      - name: Report
+        run: du -sh public/media && ls -la public/media | head -80
+
+      - name: Commit assets
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A public/media
+          if git diff --staged --quiet; then
+            echo "No media changes."
+          else
+            git commit -m "chore(media): sync generated assets"
+            git push
+          fi

@@ -2,20 +2,330 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
+    --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system,
+      "Segoe UI", Roboto, sans-serif;
+    --bg: #fbf8f3;
+    --fg: #14100e;
+    --rule: rgba(20, 16, 14, 0.13);
+    --header-h: 76px;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #14100e;
+    color: #fbf8f3;
+  }
+
+  :focus-visible {
+    outline: 2px solid #b08d57;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  /* Fraunces optical axes — a touch of softness and the "wonky" g/y,
+     which is what stops the serif reading as a stock system font. */
+  .font-display {
+    font-variation-settings: "SOFT" 28, "WONK" 1, "opsz" 96;
+  }
+  .text-display-sm.font-display,
+  .prose-editorial h3 {
+    font-variation-settings: "SOFT" 22, "WONK" 1, "opsz" 40;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Lenis */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-gutter;
+  }
+
+  .eyebrow {
+    @apply font-sans text-eyebrow font-semibold uppercase text-clay;
+  }
+
+  .rule {
+    @apply h-px w-full bg-ink/[0.13];
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2.5 overflow-hidden
+           whitespace-nowrap rounded-full font-sans text-[0.8125rem] font-medium
+           tracking-[0.02em] transition-colors duration-500 ease-out;
+  }
+  .btn-lg {
+    @apply h-[3.35rem] px-8;
+  }
+  .btn-md {
+    @apply h-[2.85rem] px-6;
+  }
+  .btn-sm {
+    @apply h-[2.35rem] px-5 text-[0.75rem];
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-paper;
+  }
+  .btn-primary::before {
+    content: "";
+    @apply absolute inset-0 -z-0 origin-bottom scale-y-0 bg-clay transition-transform
+           duration-[620ms] ease-out;
+  }
+  .btn-primary:hover::before {
+    @apply scale-y-100;
+  }
+  .btn-primary > * {
+    @apply relative z-10;
+  }
+
+  .btn-ghost {
+    @apply btn border border-ink/20 bg-transparent text-ink;
+  }
+  .btn-ghost::before {
+    content: "";
+    @apply absolute inset-0 -z-0 origin-bottom scale-y-0 bg-ink transition-transform
+           duration-[620ms] ease-out;
+  }
+  .btn-ghost:hover {
+    @apply border-ink text-paper;
+  }
+  .btn-ghost:hover::before {
+    @apply scale-y-100;
+  }
+  .btn-ghost > * {
+    @apply relative z-10;
+  }
+
+  .btn-light {
+    @apply btn border border-paper/30 bg-transparent text-paper;
+  }
+  .btn-light::before {
+    content: "";
+    @apply absolute inset-0 -z-0 origin-bottom scale-y-0 bg-paper transition-transform
+           duration-[620ms] ease-out;
+  }
+  .btn-light:hover {
+    @apply border-paper text-ink;
+  }
+  .btn-light:hover::before {
+    @apply scale-y-100;
+  }
+  .btn-light > * {
+    @apply relative z-10;
+  }
+
+  /* ---------- Link with sweeping underline ---------- */
+  .link-sweep {
+    @apply relative inline-block;
+  }
+  .link-sweep::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-current
+           transition-transform duration-[520ms] ease-out;
+  }
+  .link-sweep:hover::after {
+    @apply origin-left scale-x-100;
+  }
+
+  /* ---------- Form fields ---------- */
+  .sl-input {
+    @apply h-[3.1rem] w-full rounded-xl border border-ink/15 bg-paper px-4 font-sans
+           text-[0.9375rem] text-ink outline-none transition-colors duration-300
+           placeholder:text-bark/30 focus:border-clay;
+  }
+  textarea.sl-input {
+    @apply h-auto min-h-[8rem] py-3.5 leading-relaxed;
+  }
+
+  /* ---------- Editorial prose ---------- */
+  .prose-editorial p {
+    @apply text-[1.0625rem] leading-[1.78] text-bark/85;
+  }
+  .prose-editorial p + p {
+    @apply mt-5;
+  }
+  .prose-editorial h3 {
+    @apply mt-12 font-display text-display-sm text-ink;
+  }
+  .prose-editorial a {
+    @apply underline decoration-clay/50 underline-offset-4 transition-colors hover:decoration-clay;
+  }
+  .prose-editorial ul {
+    @apply mt-5 space-y-2.5;
+  }
+  .prose-editorial li {
+    @apply relative pl-6 text-[1.0625rem] leading-[1.7] text-bark/85;
+  }
+  .prose-editorial li::before {
+    content: "";
+    @apply absolute left-0 top-[0.72em] h-px w-3 bg-clay/60;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Grain overlay */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+    opacity: 0.34;
+    mix-blend-mode: multiply;
+    animation: grainShift 8s steps(4) infinite;
+  }
+  .grain-light::after {
+    mix-blend-mode: overlay;
+    opacity: 0.24;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+  }
+}
+
+/* ---------- Reveal primitives (GSAP adds .is-in) ---------- */
+.r-up {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition:
+    opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0ms);
+}
+.r-up.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.r-fade {
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0ms);
+}
+.r-fade.is-in {
+  opacity: 1;
+}
+
+.r-clip {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0ms);
+}
+.r-clip.is-in {
+  clip-path: inset(0 0 0% 0);
+}
+
+.r-scale img,
+.r-scale video {
+  transform: scale(1.14);
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0ms);
+}
+.r-scale.is-in img,
+.r-scale.is-in video {
+  transform: scale(1);
+}
+
+/* Word-by-word display reveal */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.split-word > span {
+  display: inline-block;
+  transform: translate3d(0, 105%, 0);
+  transition: transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--wi, 0) * 52ms + var(--d, 0ms));
+}
+.is-in .split-word > span {
+  transform: none;
+}
+
+/* Logo ray draw-in */
+.logo-ray {
+  transform: scaleY(0);
+  animation: rayIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i) * 62ms + 140ms);
+}
+@keyframes rayIn {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .r-up,
+  .r-fade,
+  .r-clip {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .split-word > span {
+    transform: none !important;
+  }
+  .r-scale img,
+  .r-scale video {
+    transform: none !important;
+  }
 }
