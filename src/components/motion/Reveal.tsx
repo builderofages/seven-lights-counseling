@@ -56,7 +56,16 @@ export default function Reveal({
     );
 
     io.observe(el);
-    return () => io.disconnect();
+
+    // fallback: if the observer has not fired within 1.4s (slow hydration,
+    // an element already fully in view on load, or a headless capture) reveal
+    // anyway rather than leave a blank hole in the page.
+    const fallback = setTimeout(() => el.classList.add("is-in"), 1400);
+
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
   }, [threshold, once]);
 
   const variantClass =

@@ -17,17 +17,17 @@ const marks = [
 
 export default function Manifesto() {
   return (
-    <section className="relative bg-paper">
+    <section className="relative bg-surface">
       {/* marquee of modalities */}
-      <div className="mask-fade-x relative overflow-hidden border-y border-ink/10 py-4">
+      <div className="mask-fade-x relative overflow-hidden border-y border-line/10 py-4">
         <div className="flex w-max animate-marquee gap-12 whitespace-nowrap will-change-transform">
           {[...marks, ...marks].map((m, i) => (
             <span
               key={i}
-              className="flex items-center gap-12 font-sans text-[0.72rem] uppercase tracking-[0.2em] text-bark/45"
+              className="flex items-center gap-12 font-sans text-[0.72rem] uppercase tracking-[0.2em] text-fgm/45"
             >
               {m}
-              <span className="h-1 w-1 rounded-full bg-clay/50" />
+              <span className="h-1 w-1 rounded-full bg-accent/50" />
             </span>
           ))}
         </div>
@@ -74,7 +74,7 @@ export default function Manifesto() {
           </div>
 
           <div className="lg:col-span-4 lg:col-start-9">
-            <Reveal variant="clip" className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+            <Reveal variant="fade" className="relative aspect-[3/4] overflow-hidden rounded-2xl">
               <Reveal variant="scale" className="absolute inset-0">
                 <Image
                   src="/media/room.webp"
@@ -86,7 +86,7 @@ export default function Manifesto() {
               </Reveal>
             </Reveal>
             <Reveal delay={120} className="mt-6">
-              <p className="font-sans text-[0.8125rem] leading-relaxed text-bark/50">
+              <p className="font-sans text-[0.8125rem] leading-relaxed text-fgm/50">
                 The Annapolis consulting room. Sessions are also available by
                 secure video anywhere in Maryland — the work translates better
                 than most people expect.

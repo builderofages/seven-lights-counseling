@@ -14,7 +14,7 @@ export default function SevenLights() {
   return (
     <section
       id="seven-lights"
-      className="relative overflow-hidden bg-ink py-section text-paper"
+      className="relative overflow-hidden bg-contrast py-section text-onc"
     >
       <video
         className="absolute inset-0 h-full w-full object-cover opacity-[0.22]"
@@ -28,14 +28,14 @@ export default function SevenLights() {
       >
         <source src="/media/prism.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/85 to-ink" />
+      <div className="absolute inset-0 bg-gradient-to-b from-scrim via-scrim/85 to-scrim" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       <div className="shell relative">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <Reveal>
-              <p className="eyebrow text-clay">The method</p>
+              <p className="eyebrow text-accent">The method</p>
             </Reveal>
             <SplitLines
               as="h2"
@@ -44,7 +44,7 @@ export default function SevenLights() {
             />
           </div>
           <Reveal delay={140} className="lg:col-span-4 lg:col-start-9">
-            <p className="text-[1.0625rem] leading-[1.75] text-paper/65">
+            <p className="text-[1.0625rem] leading-[1.75] text-onc/65">
               A single map that keeps the work honest. Seven domains of a life —
               each one a place where things get stuck, each one treatable.
               Contemplative traditions have named these for centuries; here they
@@ -89,7 +89,7 @@ export default function SevenLights() {
                     <span
                       className={cn(
                         "font-sans text-[0.6rem] font-semibold tracking-[0.14em] transition-colors",
-                        on ? "text-paper" : "text-paper/60",
+                        on ? "text-onc" : "text-onc/60",
                       )}
                     >
                       {String(l.n).padStart(2, "0")}
@@ -97,7 +97,7 @@ export default function SevenLights() {
                     <span
                       className={cn(
                         "hidden font-display text-[0.8rem] tracking-[0.06em] transition-colors sm:block",
-                        on ? "text-paper" : "text-paper/50",
+                        on ? "text-onc" : "text-onc/50",
                       )}
                     >
                       {l.name}
@@ -114,7 +114,7 @@ export default function SevenLights() {
           id="light-panel"
           role="tabpanel"
           aria-labelledby={`light-tab-${active.n}`}
-          className="mt-12 grid gap-10 border-t border-paper/12 pt-12 lg:grid-cols-12"
+          className="mt-12 grid gap-10 border-t border-onc/12 pt-12 lg:grid-cols-12"
         >
           <div className="lg:col-span-5">
             <div key={active.n} className="r-up is-in">
@@ -125,17 +125,17 @@ export default function SevenLights() {
                 Light {String(active.n).padStart(2, "0")} · {active.latin}
               </p>
               <h3 className="mt-5 font-display text-display-md font-light">{active.name}</h3>
-              <p className="mt-3 font-sans text-[0.9375rem] text-paper/50">{active.theme}</p>
+              <p className="mt-3 font-sans text-[0.9375rem] text-onc/50">{active.theme}</p>
             </div>
           </div>
 
           <div className="lg:col-span-6 lg:col-start-7">
             <div key={`${active.n}-b`} className="r-up is-in">
-              <p className="font-display text-[1.5rem] font-light italic leading-[1.35] text-paper/90">
+              <p className="font-display text-[1.5rem] font-light italic leading-[1.35] text-onc/90">
                 &ldquo;{active.question}&rdquo;
               </p>
-              <p className="mt-6 text-[1.0625rem] leading-[1.75] text-paper/65">{active.body}</p>
-              <p className="mt-7 border-t border-paper/12 pt-5 font-sans text-[0.8125rem] uppercase tracking-[0.13em] text-paper/40">
+              <p className="mt-6 text-[1.0625rem] leading-[1.75] text-onc/65">{active.body}</p>
+              <p className="mt-7 border-t border-onc/12 pt-5 font-sans text-[0.8125rem] uppercase tracking-[0.13em] text-onc/40">
                 {active.clinical}
               </p>
             </div>
@@ -146,7 +146,7 @@ export default function SevenLights() {
           <Link href="/approach" className="btn-light btn-lg">
             <span>How the method works in session</span>
           </Link>
-          <p className="max-w-[46ch] font-sans text-[0.875rem] leading-relaxed text-paper/45">
+          <p className="max-w-[46ch] font-sans text-[0.875rem] leading-relaxed text-onc/45">
             Nothing here is required to start. Most people never think about the
             framework — they just notice the work is going somewhere.
           </p>

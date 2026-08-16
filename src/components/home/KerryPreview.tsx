@@ -15,10 +15,10 @@ const credentials = [
 
 export default function KerryPreview() {
   return (
-    <section className="relative bg-paper py-section">
+    <section className="relative bg-surface py-section">
       <div className="shell grid gap-14 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-5">
-          <Reveal variant="clip" className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+          <Reveal variant="fade" className="relative aspect-[4/5] overflow-hidden rounded-2xl">
             <Reveal variant="scale" className="absolute inset-0">
               <Image
                 src="/media/kerry.webp"
@@ -61,11 +61,11 @@ export default function KerryPreview() {
           </div>
 
           <Reveal delay={140}>
-            <dl className="mt-10 grid gap-x-8 gap-y-6 border-t border-ink/[0.13] pt-8 sm:grid-cols-2">
+            <dl className="mt-10 grid gap-x-8 gap-y-6 border-t border-line/[0.13] pt-8 sm:grid-cols-2">
               {credentials.map((c) => (
                 <div key={c.k}>
                   <dt className="eyebrow">{c.k}</dt>
-                  <dd className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-bark/80">
+                  <dd className="mt-2 font-sans text-[0.9375rem] leading-relaxed text-fgm/80">
                     {c.v}
                   </dd>
                 </div>

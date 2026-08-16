@@ -17,7 +17,7 @@ const lines = [
 
 export default function Recognise() {
   return (
-    <section className="relative overflow-hidden bg-bone py-section">
+    <section className="relative overflow-hidden bg-surface-2 py-section">
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -30,7 +30,7 @@ export default function Recognise() {
               className="mt-6 font-display text-display-md font-light"
             />
             <Reveal delay={120}>
-              <p className="mt-6 max-w-[38ch] text-[1.0625rem] leading-[1.7] text-bark/70">
+              <p className="mt-6 max-w-[38ch] text-[1.0625rem] leading-[1.7] text-fgm/70">
                 You do not have to be able to articulate it. Half of the first
                 session is usually finding the words.
               </p>
@@ -46,9 +46,9 @@ export default function Recognise() {
 
           <ul className="lg:col-span-7 lg:col-start-6">
             {lines.map((l, i) => (
-              <Reveal key={i} delay={i * 55} as="li" className="border-b border-ink/[0.13]">
-                <p className="flex items-start gap-5 py-6 font-display text-[clamp(1.15rem,2.1vw,1.6rem)] font-light leading-[1.32] tracking-[-0.02em] text-ink/85">
-                  <span className="mt-[0.55em] block h-px w-6 shrink-0 bg-clay/70" />
+              <Reveal key={i} delay={i * 55} as="li" className="border-b border-line/[0.13]">
+                <p className="flex items-start gap-5 py-6 font-display text-[clamp(1.15rem,2.1vw,1.6rem)] font-light leading-[1.32] tracking-[-0.02em] text-fg/85">
+                  <span className="mt-[0.55em] block h-px w-6 shrink-0 bg-accent/70" />
                   {l}
                 </p>
               </Reveal>

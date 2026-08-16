@@ -36,7 +36,7 @@ export default function AboutPage() {
         seed={4}
       >
         <div className="flex flex-wrap gap-3">
-          <Link href="/begin" className="btn-primary btn-lg !bg-paper !text-ink">
+          <Link href="/begin" className="btn-primary btn-lg !bg-onc !text-scrim">
             <span>Book a free call</span>
           </Link>
           <a href={site.contact.phoneHref} className="btn-light btn-lg">
@@ -45,10 +45,10 @@ export default function AboutPage() {
         </div>
       </PageHero>
 
-      <section className="bg-paper py-section">
+      <section className="bg-surface py-section">
         <div className="shell grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Reveal variant="clip" className="relative aspect-[4/5] overflow-hidden rounded-2xl lg:sticky lg:top-28">
+            <Reveal variant="fade" className="relative aspect-[4/5] overflow-hidden rounded-2xl lg:sticky lg:top-28">
               <Reveal variant="scale" className="absolute inset-0">
                 <Image
                   src="/media/kerry.webp"
@@ -116,11 +116,11 @@ export default function AboutPage() {
             </div>
 
             <Reveal delay={120}>
-              <dl className="mt-14 divide-y divide-ink/[0.13] border-y border-ink/[0.13]">
+              <dl className="mt-14 divide-y divide-line/[0.13] border-y border-line/[0.13]">
                 {facts.map((f) => (
                   <div key={f.k} className="grid gap-2 py-5 sm:grid-cols-3 sm:gap-6">
                     <dt className="eyebrow pt-1">{f.k}</dt>
-                    <dd className="font-sans text-[0.9375rem] leading-relaxed text-bark/80 sm:col-span-2">
+                    <dd className="font-sans text-[0.9375rem] leading-relaxed text-fgm/80 sm:col-span-2">
                       {f.v}
                     </dd>
                   </div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={140}>
-              <p className="mt-8 font-sans text-[0.8125rem] leading-relaxed text-bark/45">
+              <p className="mt-8 font-sans text-[0.8125rem] leading-relaxed text-fgm/45">
                 Licence numbers, degree details, and full training history are
                 supplied in the practice paperwork before the first session and
                 are verifiable through the Maryland Board of Social Work Examiners.
@@ -140,7 +140,7 @@ export default function AboutPage() {
       </section>
 
       {/* what it is like */}
-      <section className="relative overflow-hidden bg-umber py-section text-paper">
+      <section className="relative overflow-hidden bg-contrast-2 py-section text-onc">
         <video
           className="absolute inset-0 h-full w-full object-cover opacity-[0.16]"
           autoPlay
@@ -153,7 +153,7 @@ export default function AboutPage() {
         >
           <source src="/media/room.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-umber via-umber/90 to-umber" />
+        <div className="absolute inset-0 bg-gradient-to-b from-contrast-2 via-contrast-2/90 to-contrast-2" />
 
         <div className="shell relative grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
@@ -169,21 +169,21 @@ export default function AboutPage() {
           <div className="lg:col-span-6 lg:col-start-7">
             <div className="prose-editorial mt-2">
               <Reveal>
-                <p className="!text-paper/70">
+                <p className="!text-onc/70">
                   No couch. No note-taking through the whole hour. No silence you
                   are expected to fill. Sessions run fifty minutes, or eighty when
                   the work calls for it, and start on time.
                 </p>
               </Reveal>
               <Reveal delay={80}>
-                <p className="!text-paper/70">
+                <p className="!text-onc/70">
                   You will be asked questions. You will not be asked to disclose
                   anything you are not ready to disclose — &lsquo;not yet&rsquo; is
                   a complete answer and will be respected without negotiation.
                 </p>
               </Reveal>
               <Reveal delay={120}>
-                <p className="!text-paper/70">
+                <p className="!text-onc/70">
                   You can swear, cry, arrive late, say the ugly version of the
                   thought, or spend twenty minutes talking about something that
                   seems irrelevant. None of it is a problem. Most of it is the

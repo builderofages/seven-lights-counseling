@@ -90,12 +90,12 @@ export default function ExitIntent() {
     >
       <button
         aria-label="Close"
-        className="absolute inset-0 cursor-default bg-ink/55 backdrop-blur-sm"
+        className="absolute inset-0 cursor-default bg-scrim/55 backdrop-blur-sm"
         onClick={() => setOpen(false)}
       />
       <div
         className={cn(
-          "relative w-full max-w-lg overflow-hidden rounded-3xl bg-paper p-8 shadow-[0_40px_120px_-40px_rgba(20,16,14,0.7)] sm:p-10",
+          "relative w-full max-w-lg overflow-hidden rounded-3xl bg-surface p-8 shadow-[0_40px_120px_-40px_rgba(20,16,14,0.7)] sm:p-10",
           "animate-[rayIn_0ms]",
         )}
         style={{ animation: "none" }}
@@ -110,7 +110,7 @@ export default function ExitIntent() {
           type="button"
           onClick={() => setOpen(false)}
           aria-label="Close"
-          className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full text-bark/40 transition-colors hover:bg-ink/5 hover:text-ink"
+          className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full text-fgm/40 transition-colors hover:bg-fg/5 hover:text-fg"
         >
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M5 5l14 14M19 5L5 19" />
@@ -119,9 +119,9 @@ export default function ExitIntent() {
 
         {state === "done" ? (
           <div className="py-4 text-center">
-            <LogoMark className="mx-auto h-8 w-auto text-clay" />
+            <LogoMark className="mx-auto h-8 w-auto text-accent" />
             <p className="mt-6 font-display text-display-sm">It&rsquo;s on its way.</p>
-            <p className="mx-auto mt-3 max-w-[34ch] font-sans text-[0.9375rem] leading-relaxed text-bark/70">
+            <p className="mx-auto mt-3 max-w-[34ch] font-sans text-[0.9375rem] leading-relaxed text-fgm/70">
               Check your inbox in the next minute or two. If nothing arrives,
               look in promotions or spam.
             </p>
@@ -131,12 +131,12 @@ export default function ExitIntent() {
           </div>
         ) : (
           <>
-            <LogoMark className="h-7 w-auto text-clay" />
+            <LogoMark className="h-7 w-auto text-accent" />
             <p className="eyebrow mt-6">Before you go</p>
             <h2 className="mt-4 font-display text-[1.9rem] leading-[1.12] tracking-[-0.025em]">
               What the first three sessions actually look like
             </h2>
-            <p className="mt-4 font-sans text-[0.9375rem] leading-relaxed text-bark/70">
+            <p className="mt-4 font-sans text-[0.9375rem] leading-relaxed text-fgm/70">
               A short, plain-language guide to starting therapy — what gets asked,
               what you never have to disclose, what changes and when. Written by
               Kerry. No newsletter, no sequence, one email.
@@ -153,7 +153,7 @@ export default function ExitIntent() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@email.com"
-                className="h-[3.1rem] flex-1 rounded-full border border-ink/15 bg-transparent px-6 font-sans text-[0.9375rem] outline-none transition-colors placeholder:text-bark/35 focus:border-clay"
+                className="h-[3.1rem] flex-1 rounded-full border border-line/15 bg-transparent px-6 font-sans text-[0.9375rem] outline-none transition-colors placeholder:text-fgm/35 focus:border-accent"
               />
               <button type="submit" disabled={state === "sending"} className="btn-primary btn-md sm:w-auto">
                 <span>{state === "sending" ? "Sending…" : "Send it"}</span>
@@ -166,7 +166,7 @@ export default function ExitIntent() {
               </p>
             )}
 
-            <p className="mt-4 font-sans text-[0.75rem] leading-relaxed text-bark/45">
+            <p className="mt-4 font-sans text-[0.75rem] leading-relaxed text-fgm/45">
               Your address is used once, for this guide. It is never sold or added
               to a marketing list.
             </p>

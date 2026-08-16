@@ -40,7 +40,7 @@ export default function VideoTile({
 
   return (
     <figure
-      className={cn("group relative overflow-hidden rounded-2xl bg-umber", className)}
+      className={cn("group relative overflow-hidden rounded-2xl bg-contrast-2", className)}
       style={{ aspectRatio: ratio }}
     >
       <video
@@ -57,8 +57,8 @@ export default function VideoTile({
       </video>
       {label && (
         <>
-          <span className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-          <figcaption className="absolute inset-x-0 bottom-0 p-5 font-sans text-[0.75rem] uppercase tracking-[0.16em] text-paper/85">
+          <span className="absolute inset-0 bg-gradient-to-t from-scrim/70 via-transparent to-transparent" />
+          <figcaption className="absolute inset-x-0 bottom-0 p-5 font-sans text-[0.75rem] uppercase tracking-[0.16em] text-onc/85">
             {label}
           </figcaption>
         </>

@@ -16,7 +16,7 @@ const films = [
 
 export default function Grounding() {
   return (
-    <section className="relative overflow-hidden bg-paper py-section">
+    <section className="relative overflow-hidden bg-surface py-section">
       <div className="shell">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -30,7 +30,7 @@ export default function Grounding() {
             />
           </div>
           <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
-            <p className="text-[1.0625rem] leading-[1.75] text-bark/70">
+            <p className="text-[1.0625rem] leading-[1.75] text-fgm/70">
               Insight that the nervous system cannot feel does not hold. So the
               work starts in the body — breath, weight, contact, pace — and the
               understanding follows it rather than the other way round.
@@ -41,7 +41,7 @@ export default function Grounding() {
         {/* moving films */}
         <div className="mt-16 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {films.map((f, i) => (
-            <Reveal key={f.src} delay={i * 90} variant="clip">
+            <Reveal key={f.src} delay={i * 90} variant="fade">
               <VideoTile src={f.src} poster={f.poster} label={f.label} ratio="3 / 4" />
             </Reveal>
           ))}
@@ -62,7 +62,7 @@ export default function Grounding() {
           <Link href="/approach" className="btn-ghost btn-lg">
             <span>How the method works</span>
           </Link>
-          <p className="max-w-[46ch] font-sans text-[0.875rem] leading-relaxed text-bark/55">
+          <p className="max-w-[46ch] font-sans text-[0.875rem] leading-relaxed text-fgm/55">
             Somatic tracking runs through everything here, whether or not you ever
             hear the word in session.
           </p>

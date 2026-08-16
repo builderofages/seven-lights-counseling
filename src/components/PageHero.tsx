@@ -47,7 +47,7 @@ export default function PageHero({
   const words = title.split(" ");
 
   return (
-    <section className="relative flex min-h-[72svh] flex-col justify-end overflow-hidden bg-ink text-paper">
+    <section className="relative flex min-h-[72svh] flex-col justify-end overflow-hidden bg-contrast text-onc">
       {video && (
         <div ref={media} className="absolute inset-0 will-change-transform">
           <video
@@ -71,13 +71,13 @@ export default function PageHero({
         className="pointer-events-none absolute inset-0 h-full w-full opacity-50 mix-blend-screen"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/25 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/75 to-scrim/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-scrim/80 via-scrim/25 to-transparent" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       <div className="shell relative pb-16 pt-40">
         <p
-          className="eyebrow text-clay transition-all duration-1000 ease-out"
+          className="eyebrow text-accent transition-all duration-1000 ease-out"
           style={{ opacity: ready ? 1 : 0, transform: ready ? "none" : "translateY(12px)" }}
         >
           {eyebrow}
@@ -101,7 +101,7 @@ export default function PageHero({
 
         {lede && (
           <p
-            className="mt-8 max-w-prose text-lede text-paper/70 transition-all duration-[1100ms] ease-out"
+            className="mt-8 max-w-prose text-lede text-onc/70 transition-all duration-[1100ms] ease-out"
             style={{
               opacity: ready ? 1 : 0,
               transform: ready ? "none" : "translateY(18px)",

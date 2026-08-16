@@ -52,12 +52,12 @@ export default function GfePage() {
         seed={15}
       />
 
-      <section className="bg-paper py-section">
+      <section className="bg-surface py-section">
         <div className="shell grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-8 lg:col-start-3">
             {blocks.map((s, i) => (
               <Reveal key={s.t} delay={Math.min(i * 60, 200)} className={i > 0 ? "mt-14" : ""}>
-                <h2 className="font-display text-display-sm font-light text-ink">{s.t}</h2>
+                <h2 className="font-display text-display-sm font-light text-fg">{s.t}</h2>
                 <div className="prose-editorial mt-5">
                   {s.b.map((p, j) => (
                     <p key={j}>{p}</p>
@@ -67,7 +67,7 @@ export default function GfePage() {
             ))}
 
             <Reveal delay={140}>
-              <div className="mt-14 flex flex-wrap items-center gap-4 border-t border-ink/[0.13] pt-10">
+              <div className="mt-14 flex flex-wrap items-center gap-4 border-t border-line/[0.13] pt-10">
                 <Link href="/rates" className="btn-ghost btn-lg">
                   <span>See the fee schedule</span>
                 </Link>
@@ -75,7 +75,7 @@ export default function GfePage() {
                   <span>Book a free consultation</span>
                 </Link>
               </div>
-              <p className="mt-8 font-sans text-[0.8125rem] leading-relaxed text-bark/45">
+              <p className="mt-8 font-sans text-[0.8125rem] leading-relaxed text-fgm/45">
                 This notice summarises rights under 45 CFR §149.610. It is provided
                 for information and is not legal advice. Last reviewed August 2026.
               </p>

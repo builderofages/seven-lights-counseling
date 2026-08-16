@@ -8,7 +8,7 @@ import { practiceShots, groundingShots, humanShots } from "@/lib/gallery";
 
 export default function Atmosphere() {
   return (
-    <section className="relative overflow-hidden bg-bone py-section">
+    <section className="relative overflow-hidden bg-surface-2 py-section">
       <div className="shell">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -22,7 +22,7 @@ export default function Atmosphere() {
             />
           </div>
           <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
-            <p className="text-[1.0625rem] leading-[1.75] text-bark/70">
+            <p className="text-[1.0625rem] leading-[1.75] text-fgm/70">
               A room that does not perform calm at you. Natural materials, real
               daylight, nothing clinical — because the body reads a space long
               before the mind does.
@@ -48,7 +48,7 @@ export default function Atmosphere() {
           <Link href="/about" className="btn-ghost btn-lg">
             <span>See the practice</span>
           </Link>
-          <p className="max-w-[44ch] font-sans text-[0.875rem] leading-relaxed text-bark/55">
+          <p className="max-w-[44ch] font-sans text-[0.875rem] leading-relaxed text-fgm/55">
             In Annapolis, or by secure video from wherever you actually feel able
             to talk.
           </p>

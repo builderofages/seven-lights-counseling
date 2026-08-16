@@ -42,11 +42,11 @@ export default function StickyConsult() {
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-8 opacity-0",
       )}
     >
-      <div className="mx-auto flex max-w-3xl items-center gap-4 rounded-full border border-ink/10 bg-paper/90 py-2.5 pl-6 pr-2.5 shadow-[0_18px_50px_-20px_rgba(20,16,14,0.4)] backdrop-blur-xl">
-        <span className="hidden min-w-0 flex-1 font-sans text-[0.8125rem] leading-snug text-bark/80 sm:block">
+      <div className="mx-auto flex max-w-3xl items-center gap-4 rounded-full border border-line/10 bg-surface/90 py-2.5 pl-6 pr-2.5 shadow-[0_18px_50px_-20px_rgba(20,16,14,0.4)] backdrop-blur-xl">
+        <span className="hidden min-w-0 flex-1 font-sans text-[0.8125rem] leading-snug text-fgm/80 sm:block">
           Free 15-minute consultation — no cost, no obligation.
         </span>
-        <span className="min-w-0 flex-1 font-sans text-[0.8125rem] leading-snug text-bark/80 sm:hidden">
+        <span className="min-w-0 flex-1 font-sans text-[0.8125rem] leading-snug text-fgm/80 sm:hidden">
           Free 15-min consultation
         </span>
         <Link
@@ -63,7 +63,7 @@ export default function StickyConsult() {
             sessionStorage.setItem("sl_rail_dismissed", "1");
             setDismissed(true);
           }}
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-bark/40 transition-colors hover:bg-ink/5 hover:text-ink"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-fgm/40 transition-colors hover:bg-fg/5 hover:text-fg"
         >
           <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6">
             <path d="M5 5l14 14M19 5L5 19" />

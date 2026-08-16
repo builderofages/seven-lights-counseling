@@ -3,14 +3,41 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root,
+  [data-theme="dark"] {
+    /* dark is the default surface — the imagery is the light source */
+    --c-surface: 17 15 13;
+    --c-surface-2: 25 21 18;
+    --c-contrast: 10 9 8;
+    --c-contrast-2: 32 27 23;
+    --c-fg: 240 234 224;
+    --c-fgm: 190 179 166;
+    --c-onc: 245 240 232;
+    --c-line: 240 234 224;
+    --c-accent: 190 152 99;
+    --grain-blend: overlay;
+    --grain-opacity: 0.16;
+    color-scheme: dark;
+
     --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
     --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system,
       "Segoe UI", Roboto, sans-serif;
-    --bg: #fbf8f3;
-    --fg: #14100e;
-    --rule: rgba(20, 16, 14, 0.13);
     --header-h: 76px;
+  }
+
+  [data-theme="light"] {
+    --c-surface: 251 248 243;
+    --c-surface-2: 245 240 232;
+    --c-contrast: 20 16 14;
+    --c-contrast-2: 36 28 23;
+    --c-fg: 20 16 14;
+    --c-fgm: 74 60 50;
+    --c-onc: 245 240 232;
+    --c-line: 20 16 14;
+    --c-accent: 138 108 85;
+    --grain-blend: multiply;
+    --grain-opacity: 0.3;
+    color-scheme: light;
   }
 
   * {
@@ -25,19 +52,19 @@
   }
 
   body {
-    background: var(--bg);
-    color: var(--fg);
+    background: rgb(var(--c-surface));
+    color: rgb(var(--c-fg));
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     overflow-x: hidden;
   }
 
   ::selection {
-    background: #14100e;
-    color: #fbf8f3;
+    background: rgb(var(--c-accent));
+    color: rgb(var(--c-contrast));
   }
 
   :focus-visible {
-    outline: 2px solid #b08d57;
+    outline: 2px solid rgb(var(--c-accent));
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -82,11 +109,11 @@
   }
 
   .eyebrow {
-    @apply font-sans text-eyebrow font-semibold uppercase text-clay;
+    @apply font-sans text-eyebrow font-semibold uppercase text-accent;
   }
 
   .rule {
-    @apply h-px w-full bg-ink/[0.13];
+    @apply h-px w-full bg-line/[0.16];
   }
 
   /* ---------- Buttons ---------- */
@@ -106,11 +133,11 @@
   }
 
   .btn-primary {
-    @apply btn bg-ink text-paper;
+    @apply btn bg-fg text-surface;
   }
   .btn-primary::before {
     content: "";
-    @apply absolute inset-0 -z-0 origin-bottom scale-y-0 bg-clay transition-transform
+    @apply absolute inset-0 -z-0 origin-bottom scale-y-0 bg-accent transition-transform
            duration-[620ms] ease-out;
   }
   .btn-primary:hover::before {
@@ -121,15 +148,15 @@
   }
 
   .btn-ghost {
-    @apply btn border border-ink/20 bg-transparent text-ink;
+    @apply btn border border-line/25 bg-transparent text-fg;
   }
   .btn-ghost::before {
     content: "";
-    @apply absolute inset-0 -z-0 origin-bottom scale-y-0 bg-ink transition-transform
+    @apply absolute inset-0 -z-0 origin-bottom scale-y-0 bg-fg transition-transform
            duration-[620ms] ease-out;
   }
   .btn-ghost:hover {
-    @apply border-ink text-paper;
+    @apply border-fg text-surface;
   }
   .btn-ghost:hover::before {
     @apply scale-y-100;
@@ -139,15 +166,15 @@
   }
 
   .btn-light {
-    @apply btn border border-paper/30 bg-transparent text-paper;
+    @apply btn border border-onc/35 bg-transparent text-onc;
   }
   .btn-light::before {
     content: "";
-    @apply absolute inset-0 -z-0 origin-bottom scale-y-0 bg-paper transition-transform
+    @apply absolute inset-0 -z-0 origin-bottom scale-y-0 bg-onc transition-transform
            duration-[620ms] ease-out;
   }
   .btn-light:hover {
-    @apply border-paper text-ink;
+    @apply border-onc text-scrim;
   }
   .btn-light:hover::before {
     @apply scale-y-100;
@@ -171,9 +198,9 @@
 
   /* ---------- Form fields ---------- */
   .sl-input {
-    @apply h-[3.1rem] w-full rounded-xl border border-ink/15 bg-paper px-4 font-sans
-           text-[0.9375rem] text-ink outline-none transition-colors duration-300
-           placeholder:text-bark/30 focus:border-clay;
+    @apply h-[3.1rem] w-full rounded-xl border border-line/20 bg-fg/[0.04] px-4 font-sans
+           text-[0.9375rem] text-fg outline-none transition-colors duration-300
+           placeholder:text-fgm/40 focus:border-accent;
   }
   textarea.sl-input {
     @apply h-auto min-h-[8rem] py-3.5 leading-relaxed;
@@ -181,26 +208,27 @@
 
   /* ---------- Editorial prose ---------- */
   .prose-editorial p {
-    @apply text-[1.0625rem] leading-[1.78] text-bark/85;
+    @apply mt-6 text-[1.0625rem] leading-[1.78] text-fgm;
   }
-  .prose-editorial p + p {
-    @apply mt-5;
+  .prose-editorial > :first-child p,
+  .prose-editorial > p:first-child {
+    @apply mt-0;
   }
   .prose-editorial h3 {
-    @apply mt-12 font-display text-display-sm text-ink;
+    @apply mt-12 font-display text-display-sm text-fg;
   }
   .prose-editorial a {
-    @apply underline decoration-clay/50 underline-offset-4 transition-colors hover:decoration-clay;
+    @apply underline decoration-accent/50 underline-offset-4 transition-colors hover:decoration-accent;
   }
   .prose-editorial ul {
     @apply mt-5 space-y-2.5;
   }
   .prose-editorial li {
-    @apply relative pl-6 text-[1.0625rem] leading-[1.7] text-bark/85;
+    @apply relative pl-6 text-[1.0625rem] leading-[1.7] text-fgm;
   }
   .prose-editorial li::before {
     content: "";
-    @apply absolute left-0 top-[0.72em] h-px w-3 bg-clay/60;
+    @apply absolute left-0 top-[0.72em] h-px w-3 bg-accent/60;
   }
 }
 

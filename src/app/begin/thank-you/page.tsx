@@ -29,7 +29,7 @@ const next = [
 
 export default function ThankYouPage() {
   return (
-    <div className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink pb-24 pt-[calc(var(--header-h)+5rem)] text-paper">
+    <div className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-contrast pb-24 pt-[calc(var(--header-h)+5rem)] text-onc">
       <video
         className="absolute inset-0 h-full w-full object-cover opacity-[0.35]"
         autoPlay
@@ -42,39 +42,39 @@ export default function ThankYouPage() {
       >
         <source src="/media/dawn.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/85 to-scrim/60" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       <div className="shell relative">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <LogoMark className="mx-auto h-10 w-auto text-clay" animate />
+            <LogoMark className="mx-auto h-10 w-auto text-accent" animate />
           </Reveal>
           <Reveal delay={120}>
-            <p className="eyebrow mt-9 text-clay">Received</p>
+            <p className="eyebrow mt-9 text-accent">Received</p>
             <h1 className="mt-6 font-display text-display-lg font-light">
               That was the hard part.
             </h1>
-            <p className="mx-auto mt-7 max-w-[50ch] text-lede text-paper/65">
+            <p className="mx-auto mt-7 max-w-[50ch] text-lede text-onc/65">
               Your request is in. Most people find that sending it was heavier
               than anything that follows.
             </p>
           </Reveal>
         </div>
 
-        <ol className="mx-auto mt-16 grid max-w-5xl gap-px overflow-hidden rounded-2xl bg-paper/12 md:grid-cols-3">
+        <ol className="mx-auto mt-16 grid max-w-5xl gap-px overflow-hidden rounded-2xl bg-surface/12 md:grid-cols-3">
           {next.map((s, i) => (
             <Reveal
               key={s.n}
               as="li"
               delay={i * 110}
-              className="bg-ink/90 p-8 backdrop-blur-sm transition-colors duration-700 hover:bg-umber"
+              className="bg-scrim/90 p-8 backdrop-blur-sm transition-colors duration-700 hover:bg-contrast-2"
             >
-              <span className="font-sans text-[0.6875rem] font-semibold tracking-[0.2em] text-clay">
+              <span className="font-sans text-[0.6875rem] font-semibold tracking-[0.2em] text-accent">
                 {s.n}
               </span>
               <h2 className="mt-6 font-display text-[1.3rem] font-light leading-tight">{s.t}</h2>
-              <p className="mt-4 font-sans text-[0.9375rem] leading-[1.7] text-paper/60">{s.d}</p>
+              <p className="mt-4 font-sans text-[0.9375rem] leading-[1.7] text-onc/60">{s.d}</p>
             </Reveal>
           ))}
         </ol>
@@ -89,11 +89,11 @@ export default function ThankYouPage() {
             </Link>
           </div>
 
-          <p className="mx-auto mt-10 max-w-[58ch] rounded-2xl border border-light-1/25 bg-light-1/[0.07] p-6 font-sans text-[0.875rem] leading-relaxed text-paper/70">
+          <p className="mx-auto mt-10 max-w-[58ch] rounded-2xl border border-light-1/25 bg-light-1/[0.07] p-6 font-sans text-[0.875rem] leading-relaxed text-onc/70">
             If things become urgent before you hear back, this practice cannot
-            respond to emergencies. Call <strong className="text-paper">911</strong>,
+            respond to emergencies. Call <strong className="text-onc">911</strong>,
             or call or text{" "}
-            <a href={site.crisis.href} className="link-sweep font-medium text-paper">
+            <a href={site.crisis.href} className="link-sweep font-medium text-onc">
               988
             </a>{" "}
             for the Suicide &amp; Crisis Lifeline, available 24 hours a day.

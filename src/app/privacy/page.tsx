@@ -70,7 +70,7 @@ export default function PrivacyPage() {
         seed={13}
       />
 
-      <section className="bg-paper py-section">
+      <section className="bg-surface py-section">
         <div className="shell grid gap-12 lg:grid-cols-12">
           <nav className="lg:col-span-3">
             <Reveal>
@@ -81,7 +81,7 @@ export default function PrivacyPage() {
                     <a
                       key={s.id}
                       href={`#${s.id}`}
-                      className="link-sweep font-sans text-[0.875rem] font-normal text-bark/70"
+                      className="link-sweep font-sans text-[0.875rem] font-normal text-fgm/70"
                     >
                       {s.t}
                     </a>
@@ -95,7 +95,7 @@ export default function PrivacyPage() {
             {sections.map((s, i) => (
               <Reveal key={s.id} delay={Math.min(i * 50, 200)} className={i > 0 ? "mt-14" : ""}>
                 <div id={s.id} className="scroll-mt-32">
-                  <h2 className="font-display text-display-sm font-light text-ink">{s.t}</h2>
+                  <h2 className="font-display text-display-sm font-light text-fg">{s.t}</h2>
                   <div className="prose-editorial mt-5">
                     {s.b.map((p, j) => (
                       <p key={j}>{p}</p>
@@ -106,7 +106,7 @@ export default function PrivacyPage() {
             ))}
 
             <Reveal delay={120}>
-              <p className="mt-16 border-t border-ink/[0.13] pt-8 font-sans text-[0.8125rem] leading-relaxed text-bark/45">
+              <p className="mt-16 border-t border-line/[0.13] pt-8 font-sans text-[0.8125rem] leading-relaxed text-fgm/45">
                 This page is a plain-language summary and is not the practice&rsquo;s
                 formal Notice of Privacy Practices, which is provided in writing at
                 intake. Last reviewed August 2026.

@@ -8,6 +8,7 @@ import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { Wordmark, LogoMark } from "@/components/Logo";
 import { cn } from "@/lib/cn";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -62,13 +63,14 @@ export default function Header() {
     megaTimer.current = setTimeout(() => setMega(false), 170);
   };
 
-  const dark = !scrolled && (pathname === "/" || pathname === "/approach");
+  // every page opens on a dark, filmic hero, so the bar is always light-on-dark
+  const dark = true;
 
   return (
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[120] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:text-paper"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[120] focus:rounded-full focus:bg-contrast focus:px-5 focus:py-3 focus:text-sm focus:text-onc"
       >
         Skip to content
       </a>
@@ -78,7 +80,7 @@ export default function Header() {
           "fixed inset-x-0 top-0 z-[90] transition-[transform,background-color,backdrop-filter,border-color] duration-[650ms] ease-out",
           hidden ? "-translate-y-full" : "translate-y-0",
           scrolled || mega
-            ? "border-b border-ink/10 bg-paper/85 backdrop-blur-xl"
+            ? "border-b border-onc/10 bg-contrast/80 backdrop-blur-xl"
             : "border-b border-transparent",
         )}
         onMouseLeave={closeMega}
@@ -89,7 +91,7 @@ export default function Header() {
             aria-label={`${site.name} — home`}
             className={cn(
               "group relative z-10 transition-colors duration-500",
-              dark ? "text-paper" : "text-ink",
+              dark ? "text-onc" : "text-fg",
             )}
           >
             <Wordmark className="text-[15px] sm:text-[17px]" />
@@ -99,7 +101,7 @@ export default function Header() {
             aria-label="Primary"
             className={cn(
               "hidden items-center gap-9 lg:flex",
-              dark ? "text-paper/85" : "text-bark",
+              dark ? "text-onc/85" : "text-fgm",
             )}
           >
             <button
@@ -110,8 +112,8 @@ export default function Header() {
               aria-expanded={mega}
               className={cn(
                 "link-sweep font-sans text-[0.8125rem] font-medium tracking-[0.02em] transition-colors",
-                dark ? "hover:text-paper" : "hover:text-ink",
-                pathname.startsWith("/services") && "text-clay",
+                dark ? "hover:text-onc" : "hover:text-fg",
+                pathname.startsWith("/services") && "text-accent",
               )}
             >
               Services
@@ -123,8 +125,8 @@ export default function Header() {
                 onMouseEnter={closeMega}
                 className={cn(
                   "link-sweep font-sans text-[0.8125rem] font-medium tracking-[0.02em] transition-colors",
-                  dark ? "hover:text-paper" : "hover:text-ink",
-                  pathname === n.href && "text-clay",
+                  dark ? "hover:text-onc" : "hover:text-fg",
+                  pathname === n.href && "text-accent",
                 )}
               >
                 {n.label}
@@ -137,7 +139,7 @@ export default function Header() {
               href={site.contact.phoneHref}
               className={cn(
                 "hidden font-sans text-[0.8125rem] font-medium tracking-[0.02em] transition-colors xl:block",
-                dark ? "text-paper/75 hover:text-paper" : "text-bark hover:text-ink",
+                dark ? "text-onc/75 hover:text-onc" : "text-fgm hover:text-fg",
               )}
             >
               {site.contact.phone}
@@ -149,13 +151,15 @@ export default function Header() {
                 <span>Book a consultation</span>
               </Link>
 
+            <ThemeToggle className="hidden sm:flex" />
+
             <button
               type="button"
               onClick={() => setMenu(true)}
               aria-label="Open menu"
               className={cn(
                 "flex h-11 w-11 items-center justify-center rounded-full border transition-colors lg:hidden",
-                dark ? "border-paper/25 text-paper" : "border-ink/15 text-ink",
+                dark ? "border-onc/25 text-onc" : "border-line/15 text-fg",
               )}
             >
               <span className="flex flex-col gap-[5px]">
@@ -171,7 +175,7 @@ export default function Header() {
           onMouseEnter={openMega}
           onMouseLeave={closeMega}
           className={cn(
-            "pointer-events-none absolute inset-x-0 top-full hidden origin-top border-b border-ink/10 bg-paper/95 backdrop-blur-xl transition-all duration-[560ms] ease-out lg:block",
+            "pointer-events-none absolute inset-x-0 top-full hidden origin-top border-b border-onc/10 bg-contrast/95 backdrop-blur-xl transition-all duration-[560ms] ease-out lg:block",
             mega ? "pointer-events-auto opacity-100" : "-translate-y-3 opacity-0",
           )}
           aria-hidden={!mega}
@@ -179,10 +183,10 @@ export default function Header() {
           <div className="shell grid grid-cols-12 gap-10 py-10">
             <div className="col-span-3">
               <p className="eyebrow">Where to begin</p>
-              <p className="mt-5 font-display text-[1.35rem] leading-[1.25] text-ink">
+              <p className="mt-5 font-display text-[1.35rem] leading-[1.25] text-fg">
                 Not sure which door is yours?
               </p>
-              <p className="mt-3 max-w-[26ch] font-sans text-[0.875rem] leading-relaxed text-bark/70">
+              <p className="mt-3 max-w-[26ch] font-sans text-[0.875rem] leading-relaxed text-fgm/70">
                 Answer six questions and we&rsquo;ll point you to the right starting
                 point — no email required to see the result.
               </p>
@@ -196,16 +200,16 @@ export default function Header() {
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="group flex items-start gap-4 rounded-xl px-3 py-3 transition-colors hover:bg-ink/[0.035]"
+                  className="group flex items-start gap-4 rounded-xl px-3 py-3 transition-colors hover:bg-onc/[0.06]"
                 >
-                  <span className="mt-[3px] font-sans text-[0.625rem] font-semibold tracking-[0.14em] text-clay/70">
+                  <span className="mt-[3px] font-sans text-[0.625rem] font-semibold tracking-[0.14em] text-accent/70">
                     {s.index}
                   </span>
                   <span className="min-w-0">
-                    <span className="block font-display text-[0.98rem] leading-tight text-ink">
+                    <span className="block font-display text-[0.98rem] leading-tight text-fg">
                       {s.navTitle}
                     </span>
-                    <span className="mt-1 block truncate font-sans text-[0.78rem] text-bark/55">
+                    <span className="mt-1 block truncate font-sans text-[0.78rem] text-fgm/55">
                       {s.eyebrow}
                     </span>
                   </span>
@@ -219,7 +223,7 @@ export default function Header() {
       {/* ---------- Mobile overlay ---------- */}
       <div
         className={cn(
-          "fixed inset-0 z-[100] flex flex-col bg-ink text-paper transition-[clip-path] duration-[780ms] ease-out lg:hidden",
+          "fixed inset-0 z-[100] flex flex-col bg-contrast text-onc transition-[clip-path] duration-[780ms] ease-out lg:hidden",
           menu ? "[clip-path:inset(0_0_0%_0)]" : "pointer-events-none [clip-path:inset(0_0_100%_0)]",
         )}
       >
@@ -229,7 +233,7 @@ export default function Header() {
             type="button"
             onClick={() => setMenu(false)}
             aria-label="Close menu"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/25"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-onc/25"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.4">
               <path d="M5 5l14 14M19 5L5 19" />
@@ -244,7 +248,7 @@ export default function Header() {
                 <Link
                   key={n.href}
                   href={n.href}
-                  className="border-b border-paper/10 py-5 font-display text-[1.9rem] leading-none tracking-[-0.02em] transition-opacity duration-500"
+                  className="border-b border-onc/10 py-5 font-display text-[1.9rem] leading-none tracking-[-0.02em] transition-opacity duration-500"
                   style={{
                     opacity: menu ? 1 : 0,
                     transform: menu ? "none" : "translateY(14px)",
@@ -262,7 +266,7 @@ export default function Header() {
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="rounded-lg border border-paper/10 px-3 py-3 font-sans text-[0.8rem] leading-snug text-paper/70"
+                className="rounded-lg border border-onc/10 px-3 py-3 font-sans text-[0.8rem] leading-snug text-onc/70"
               >
                 {s.navTitle}
               </Link>
@@ -273,7 +277,7 @@ export default function Header() {
             <Link href={site.cta.primary.href} className="btn-light btn-lg w-full">
               <span>Book a free consultation</span>
             </Link>
-            <a href={site.contact.phoneHref} className="py-3 text-center font-sans text-sm text-paper/60">
+            <a href={site.contact.phoneHref} className="py-3 text-center font-sans text-sm text-onc/60">
               {site.contact.phone}
             </a>
           </div>

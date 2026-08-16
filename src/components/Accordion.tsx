@@ -9,14 +9,14 @@ export default function Accordion({ items, tone = "light" }: { items: Faq[]; ton
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className={cn("border-t", tone === "dark" ? "border-paper/12" : "border-ink/[0.13]")}>
+    <div className={cn("border-t", tone === "dark" ? "border-onc/12" : "border-line/[0.13]")}>
       {items.map((f, i) => {
         const isOpen = open === i;
         return (
           <Reveal
             key={f.q}
             delay={Math.min(i * 40, 220)}
-            className={cn("border-b", tone === "dark" ? "border-paper/12" : "border-ink/[0.13]")}
+            className={cn("border-b", tone === "dark" ? "border-onc/12" : "border-line/[0.13]")}
           >
             <h3>
               <button
@@ -28,7 +28,7 @@ export default function Accordion({ items, tone = "light" }: { items: Faq[]; ton
                 <span
                   className={cn(
                     "flex-1 font-display text-[clamp(1.05rem,1.7vw,1.35rem)] font-light leading-[1.32] tracking-[-0.015em] transition-colors",
-                    tone === "dark" ? "text-paper" : "text-ink",
+                    tone === "dark" ? "text-onc" : "text-fg",
                   )}
                 >
                   {f.q}
@@ -37,8 +37,8 @@ export default function Accordion({ items, tone = "light" }: { items: Faq[]; ton
                   className={cn(
                     "relative mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors duration-500",
                     tone === "dark"
-                      ? "border-paper/20 text-paper group-hover:border-paper"
-                      : "border-ink/15 text-ink group-hover:border-ink",
+                      ? "border-onc/20 text-onc group-hover:border-onc"
+                      : "border-line/15 text-fg group-hover:border-line",
                   )}
                 >
                   <span className="absolute h-px w-3 bg-current" />
@@ -59,7 +59,7 @@ export default function Accordion({ items, tone = "light" }: { items: Faq[]; ton
                 <p
                   className={cn(
                     "max-w-[72ch] pb-8 pr-14 text-[1rem] leading-[1.75] transition-opacity duration-500",
-                    tone === "dark" ? "text-paper/60" : "text-bark/75",
+                    tone === "dark" ? "text-onc/60" : "text-fgm/75",
                     isOpen ? "opacity-100" : "opacity-0",
                   )}
                 >

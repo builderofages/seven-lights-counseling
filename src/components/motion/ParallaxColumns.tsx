@@ -69,7 +69,7 @@ export default function ParallaxColumns({
                 sizes="(min-width:768px) 30vw, 46vw"
                 className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.035]"
               />
-              <span className="absolute inset-0 bg-ink/5 transition-opacity duration-700 group-hover:opacity-0" />
+              <span className="absolute inset-0 bg-fg/5 transition-opacity duration-700 group-hover:opacity-0" />
             </figure>
           ))}
         </div>

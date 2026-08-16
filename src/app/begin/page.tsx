@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function BeginPage() {
   return (
-    <Suspense fallback={<div className="min-h-[100svh] bg-paper" />}>
+    <Suspense fallback={<div className="min-h-[100svh] bg-surface" />}>
       <BeginClient />
     </Suspense>
   );

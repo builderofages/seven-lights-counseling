@@ -26,7 +26,7 @@ export default function ServicesPage() {
         seed={5}
       >
         <div className="flex flex-wrap gap-3">
-          <Link href="/begin?mode=match" className="btn-primary btn-lg !bg-paper !text-ink">
+          <Link href="/begin?mode=match" className="btn-primary btn-lg !bg-onc !text-scrim">
             <span>Find your starting point</span>
           </Link>
           <Link href="/begin" className="btn-light btn-lg">
@@ -35,7 +35,7 @@ export default function ServicesPage() {
         </div>
       </PageHero>
 
-      <section className="bg-paper py-section">
+      <section className="bg-surface py-section">
         <div className="shell grid gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
           {services.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 90}>
@@ -48,24 +48,24 @@ export default function ServicesPage() {
                     sizes="(min-width:1280px) 30vw, (min-width:768px) 46vw, 100vw"
                     className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.035]"
                   />
-                  <span className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent opacity-70 transition-opacity duration-700 group-hover:opacity-40" />
-                  <span className="absolute left-5 top-5 rounded-full bg-paper/90 px-3 py-1 font-sans text-[0.625rem] font-semibold tracking-[0.16em] text-ink">
+                  <span className="absolute inset-0 bg-gradient-to-t from-scrim/55 via-transparent to-transparent opacity-70 transition-opacity duration-700 group-hover:opacity-40" />
+                  <span className="absolute left-5 top-5 rounded-full bg-surface/90 px-3 py-1 font-sans text-[0.625rem] font-semibold tracking-[0.16em] text-fg">
                     {s.index}
                   </span>
                 </span>
 
-                <span className="mt-6 block font-display text-[1.55rem] font-light leading-[1.15] tracking-[-0.02em] text-ink transition-transform duration-[620ms] ease-out group-hover:translate-x-1.5">
+                <span className="mt-6 block font-display text-[1.55rem] font-light leading-[1.15] tracking-[-0.02em] text-fg transition-transform duration-[620ms] ease-out group-hover:translate-x-1.5">
                   {s.title}
                 </span>
-                <span className="mt-1.5 block font-sans text-[0.75rem] uppercase tracking-[0.14em] text-clay/80">
+                <span className="mt-1.5 block font-sans text-[0.75rem] uppercase tracking-[0.14em] text-accent/80">
                   {s.eyebrow}
                 </span>
-                <span className="mt-4 block flex-1 font-sans text-[0.9375rem] leading-[1.7] text-bark/70">
+                <span className="mt-4 block flex-1 font-sans text-[0.9375rem] leading-[1.7] text-fgm/70">
                   {s.lede}
                 </span>
-                <span className="mt-6 flex items-center gap-3 font-sans text-[0.8125rem] font-medium text-ink">
+                <span className="mt-6 flex items-center gap-3 font-sans text-[0.8125rem] font-medium text-fg">
                   Read more
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-ink/15 transition-all duration-500 group-hover:border-ink group-hover:bg-ink group-hover:text-paper">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-line/15 transition-all duration-500 group-hover:border-line group-hover:bg-contrast group-hover:text-onc">
                     <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.8">
                       <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg>

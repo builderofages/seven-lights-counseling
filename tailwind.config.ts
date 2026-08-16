@@ -5,6 +5,18 @@ export default {
   theme: {
     extend: {
       colors: {
+        // semantic, theme-aware tokens
+        surface: "rgb(var(--c-surface) / <alpha-value>)",
+        "surface-2": "rgb(var(--c-surface-2) / <alpha-value>)",
+        contrast: "rgb(var(--c-contrast) / <alpha-value>)",
+        "contrast-2": "rgb(var(--c-contrast-2) / <alpha-value>)",
+        fg: "rgb(var(--c-fg) / <alpha-value>)",
+        fgm: "rgb(var(--c-fgm) / <alpha-value>)",
+        onc: "rgb(var(--c-onc) / <alpha-value>)",
+        line: "rgb(var(--c-line) / <alpha-value>)",
+        accent: "rgb(var(--c-accent) / <alpha-value>)",
+        // always-dark, used only for scrims over film and photography
+        scrim: "#0A0908",
         ink: "#14100E",
         umber: "#241C17",
         bark: "#3A2E26",

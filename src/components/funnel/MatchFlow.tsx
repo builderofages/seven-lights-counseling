@@ -189,9 +189,9 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
   const selected = answers[current?.key] ?? [];
 
   return (
-    <div className="relative min-h-[100svh] bg-paper pb-24 pt-[calc(var(--header-h)+3rem)]">
+    <div className="relative min-h-[100svh] bg-surface pb-24 pt-[calc(var(--header-h)+3rem)]">
       {/* progress: seven lights fill */}
-      <div className="fixed inset-x-0 top-[var(--header-h)] z-[60] flex h-[3px] bg-ink/[0.07]">
+      <div className="fixed inset-x-0 top-[var(--header-h)] z-[60] flex h-[3px] bg-fg/[0.07]">
         {SPECTRUM.map((c, i) => {
           const seg = 1 / 7;
           const fill = Math.min(1, Math.max(0, (progress - i * seg) / seg));
@@ -219,7 +219,7 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
                   track("quiz_skip", { at: current.key });
                   setPhase("result");
                 }}
-                className="link-sweep font-sans text-[0.8125rem] text-bark/50"
+                className="link-sweep font-sans text-[0.8125rem] text-fgm/50"
               >
                 Skip — just book a call
               </button>
@@ -229,7 +229,7 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
               <h1 className="max-w-[18ch] font-display text-display-md font-light">
                 {current.question}
               </h1>
-              <p className="mt-4 max-w-[52ch] font-sans text-[0.9375rem] leading-relaxed text-bark/60">
+              <p className="mt-4 max-w-[52ch] font-sans text-[0.9375rem] leading-relaxed text-fgm/60">
                 {current.help}
               </p>
 
@@ -250,19 +250,19 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
                       className={cn(
                         "group flex items-center gap-4 rounded-2xl border px-5 py-4 text-left transition-all duration-500 ease-out",
                         on
-                          ? "border-ink bg-ink text-paper"
-                          : "border-ink/12 bg-transparent text-ink hover:border-ink/35 hover:bg-ink/[0.025]",
+                          ? "border-line bg-contrast text-onc"
+                          : "border-line/12 bg-transparent text-fg hover:border-line/35 hover:bg-fg/[0.025]",
                       )}
                       style={{ transitionDelay: `${idx * 12}ms` }}
                     >
                       <span
                         className={cn(
                           "flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors",
-                          on ? "border-paper bg-paper" : "border-ink/25",
+                          on ? "border-onc bg-surface" : "border-line/25",
                         )}
                       >
                         {on && (
-                          <svg viewBox="0 0 24 24" className="h-3 w-3 text-ink" fill="none" stroke="currentColor" strokeWidth="3">
+                          <svg viewBox="0 0 24 24" className="h-3 w-3 text-fg" fill="none" stroke="currentColor" strokeWidth="3">
                             <path d="M4 12l5 5L20 6" />
                           </svg>
                         )}
@@ -304,7 +304,7 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
                   <h1 className="mt-6 font-display text-display-md font-light">
                     Start here.
                   </h1>
-                  <p className="mt-5 max-w-[46ch] font-sans text-[0.9375rem] leading-relaxed text-bark/65">
+                  <p className="mt-5 max-w-[46ch] font-sans text-[0.9375rem] leading-relaxed text-fgm/65">
                     This is a starting point, not a diagnosis. Kerry will confirm
                     or redirect it on the call — that is exactly what the call is
                     for.
@@ -318,8 +318,8 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
                         className={cn(
                           "group flex items-center gap-4 rounded-2xl border p-3 transition-colors",
                           i === 0
-                            ? "border-ink/20 bg-bone"
-                            : "border-ink/10 hover:border-ink/25",
+                            ? "border-line/20 bg-surface-2"
+                            : "border-line/10 hover:border-line/25",
                         )}
                       >
                         <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
@@ -327,18 +327,18 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
                         </span>
                         <span className="min-w-0 flex-1">
                           {i === 0 && (
-                            <span className="block font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-clay">
+                            <span className="block font-sans text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-accent">
                               Closest match
                             </span>
                           )}
-                          <span className="mt-0.5 block font-display text-[1.05rem] leading-tight text-ink">
+                          <span className="mt-0.5 block font-display text-[1.05rem] leading-tight text-fg">
                             {s.title}
                           </span>
-                          <span className="mt-1 block font-sans text-[0.78rem] text-bark/55">
+                          <span className="mt-1 block font-sans text-[0.78rem] text-fgm/55">
                             {s.duration}
                           </span>
                         </span>
-                        <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-bark/40 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-fgm/40 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="1.5">
                           <path d="M5 12h14M13 6l6 6-6 6" />
                         </svg>
                       </Link>
@@ -351,7 +351,7 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
                   <h1 className="mt-6 font-display text-display-md font-light">
                     Fifteen minutes, free, by phone.
                   </h1>
-                  <p className="mt-5 max-w-[44ch] font-sans text-[0.9375rem] leading-relaxed text-bark/65">
+                  <p className="mt-5 max-w-[44ch] font-sans text-[0.9375rem] leading-relaxed text-fgm/65">
                     Tell Kerry what is going on in whatever words you have. If this
                     is not the right practice for you, she will tell you and point
                     you somewhere better.
@@ -359,12 +359,12 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
                 </div>
               )}
 
-              <div className="mt-10 rounded-2xl border border-ink/10 bg-bone/60 p-6">
+              <div className="mt-10 rounded-2xl border border-line/10 bg-surface-2/60 p-6">
                 <p className="eyebrow">If you are in crisis</p>
-                <p className="mt-3 font-sans text-[0.875rem] leading-relaxed text-bark/70">
+                <p className="mt-3 font-sans text-[0.875rem] leading-relaxed text-fgm/70">
                   This practice cannot respond to emergencies. Call{" "}
-                  <strong className="text-ink">911</strong>, or call or text{" "}
-                  <a href={site.crisis.href} className="link-sweep font-medium text-ink">
+                  <strong className="text-fg">911</strong>, or call or text{" "}
+                  <a href={site.crisis.href} className="link-sweep font-medium text-fg">
                     988
                   </a>{" "}
                   for the Suicide &amp; Crisis Lifeline, available 24/7.
@@ -374,11 +374,11 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
 
             {/* form */}
             <div className="lg:col-span-6 lg:col-start-7">
-              <form onSubmit={submit} className="r-up is-in rounded-3xl border border-ink/10 bg-bone/50 p-7 sm:p-9">
-                <p className="font-display text-[1.5rem] font-light leading-tight text-ink">
+              <form onSubmit={submit} className="r-up is-in rounded-3xl border border-line/10 bg-surface-2/50 p-7 sm:p-9">
+                <p className="font-display text-[1.5rem] font-light leading-tight text-fg">
                   Request your consultation
                 </p>
-                <p className="mt-2 font-sans text-[0.875rem] text-bark/60">
+                <p className="mt-2 font-sans text-[0.875rem] text-fgm/60">
                   Replies within one business day.
                 </p>
 
@@ -437,9 +437,9 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
                     required
                     checked={form.consent}
                     onChange={(e) => setForm({ ...form, consent: e.target.checked })}
-                    className="mt-1 h-4 w-4 shrink-0 rounded border-ink/25 accent-[#14100E]"
+                    className="mt-1 h-4 w-4 shrink-0 rounded border-line/25 accent-[#14100E]"
                   />
-                  <span className="font-sans text-[0.8125rem] leading-relaxed text-bark/65">
+                  <span className="font-sans text-[0.8125rem] leading-relaxed text-fgm/65">
                     I understand that email and web forms are not secure channels
                     and agree to be contacted about a consultation. I will not
                     include sensitive clinical detail here.
@@ -464,9 +464,9 @@ export default function MatchFlow({ startMode = "match" }: { startMode?: "match"
                   </p>
                 )}
 
-                <p className="mt-5 text-center font-sans text-[0.75rem] text-bark/45">
+                <p className="mt-5 text-center font-sans text-[0.75rem] text-fgm/45">
                   Prefer to speak now?{" "}
-                  <a href={site.contact.phoneHref} className="link-sweep font-medium text-ink">
+                  <a href={site.contact.phoneHref} className="link-sweep font-medium text-fg">
                     {site.contact.phone}
                   </a>
                 </p>
@@ -493,11 +493,11 @@ function Field({
   return (
     <label className="block">
       <span className="flex items-baseline justify-between">
-        <span className="eyebrow text-bark/60">
+        <span className="eyebrow text-fgm/60">
           {label}
-          {required && <span className="text-clay"> *</span>}
+          {required && <span className="text-accent"> *</span>}
         </span>
-        {hint && <span className="font-sans text-[0.6875rem] text-bark/40">{hint}</span>}
+        {hint && <span className="font-sans text-[0.6875rem] text-fgm/40">{hint}</span>}
       </span>
       <span className="mt-2 block">{children}</span>
     </label>

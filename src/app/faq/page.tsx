@@ -37,12 +37,12 @@ export default function FaqPage() {
         lightIds={[5, 6]}
         seed={9}
       >
-        <Link href="/begin" className="btn-primary btn-lg !bg-paper !text-ink">
+        <Link href="/begin" className="btn-primary btn-lg !bg-onc !text-scrim">
           <span>Ask on a free call</span>
         </Link>
       </PageHero>
 
-      <section className="bg-paper py-section">
+      <section className="bg-surface py-section">
         <div className="shell">
           {faqGroups.map((g, gi) => (
             <div key={g} className={gi > 0 ? "mt-20" : ""}>

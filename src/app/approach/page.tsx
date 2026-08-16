@@ -54,13 +54,13 @@ export default function ApproachPage() {
         lightIds={[1, 2, 3, 4, 5, 6, 7]}
         seed={1}
       >
-        <Link href="/begin" className="btn-primary btn-lg !bg-paper !text-ink">
+        <Link href="/begin" className="btn-primary btn-lg !bg-onc !text-scrim">
           <span>Book a free 15-minute call</span>
         </Link>
       </PageHero>
 
       {/* ---- premise ---- */}
-      <section className="bg-paper py-section">
+      <section className="bg-surface py-section">
         <div className="shell grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Reveal>
@@ -101,7 +101,7 @@ export default function ApproachPage() {
           </div>
 
           <div className="lg:col-span-4 lg:col-start-9">
-            <Reveal variant="clip" className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+            <Reveal variant="fade" className="relative aspect-[3/4] overflow-hidden rounded-2xl">
               <Reveal variant="scale" className="absolute inset-0">
                 <Image
                   src="/media/stones.webp"
@@ -117,12 +117,12 @@ export default function ApproachPage() {
       </section>
 
       {/* ---- the seven, in sequence ---- */}
-      <section className="relative overflow-hidden bg-ink text-paper">
+      <section className="relative overflow-hidden bg-contrast text-onc">
         <div className="grain pointer-events-none absolute inset-0 grain-light" />
         {lights.map((l, i) => (
           <div
             key={l.n}
-            className="relative border-b border-paper/10 last:border-0"
+            className="relative border-b border-onc/10 last:border-0"
             style={{ background: i % 2 ? "rgba(245,240,232,0.018)" : "transparent" }}
           >
             <ServiceAura
@@ -144,19 +144,19 @@ export default function ApproachPage() {
                     Light {String(l.n).padStart(2, "0")} · {l.latin}
                   </p>
                   <h2 className="mt-4 font-display text-display-md font-light">{l.name}</h2>
-                  <p className="mt-3 font-sans text-[0.9375rem] text-paper/45">{l.theme}</p>
+                  <p className="mt-3 font-sans text-[0.9375rem] text-onc/45">{l.theme}</p>
                 </Reveal>
               </div>
 
               <div className="lg:col-span-7 lg:col-start-6">
                 <Reveal delay={90}>
-                  <p className="font-display text-[clamp(1.4rem,2.6vw,2rem)] font-light italic leading-[1.3] text-paper/90">
+                  <p className="font-display text-[clamp(1.4rem,2.6vw,2rem)] font-light italic leading-[1.3] text-onc/90">
                     &ldquo;{l.question}&rdquo;
                   </p>
-                  <p className="mt-7 max-w-prose text-[1.0625rem] leading-[1.78] text-paper/65">
+                  <p className="mt-7 max-w-prose text-[1.0625rem] leading-[1.78] text-onc/65">
                     {l.body}
                   </p>
-                  <p className="mt-8 border-t border-paper/12 pt-5 font-sans text-[0.8125rem] uppercase tracking-[0.13em] text-paper/40">
+                  <p className="mt-8 border-t border-onc/12 pt-5 font-sans text-[0.8125rem] uppercase tracking-[0.13em] text-onc/40">
                     {l.clinical}
                   </p>
                 </Reveal>
@@ -167,7 +167,7 @@ export default function ApproachPage() {
       </section>
 
       {/* ---- principles ---- */}
-      <section className="bg-bone py-section">
+      <section className="bg-surface-2 py-section">
         <div className="shell">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
@@ -181,27 +181,27 @@ export default function ApproachPage() {
               />
             </div>
             <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
-              <p className="text-[1.0625rem] leading-[1.75] text-bark/70">
+              <p className="text-[1.0625rem] leading-[1.75] text-fgm/70">
                 These are not aspirations. If any of them stops being true of your
                 treatment, naming it is a legitimate use of a session.
               </p>
             </Reveal>
           </div>
 
-          <div className="mt-16 grid gap-px overflow-hidden rounded-2xl bg-ink/10 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-16 grid gap-px overflow-hidden rounded-2xl bg-scrim/10 md:grid-cols-2 xl:grid-cols-3">
             {principles.map((p, i) => (
               <Reveal
                 key={p.t}
                 delay={(i % 3) * 90}
-                className="bg-bone p-8 transition-colors duration-700 hover:bg-paper sm:p-9"
+                className="bg-surface-2 p-8 transition-colors duration-700 hover:bg-surface sm:p-9"
               >
-                <span className="font-sans text-[0.6875rem] font-semibold tracking-[0.2em] text-clay">
+                <span className="font-sans text-[0.6875rem] font-semibold tracking-[0.2em] text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-6 font-display text-[1.4rem] font-light leading-tight text-ink">
+                <h3 className="mt-6 font-display text-[1.4rem] font-light leading-tight text-fg">
                   {p.t}
                 </h3>
-                <p className="mt-4 font-sans text-[0.9375rem] leading-[1.7] text-bark/70">{p.d}</p>
+                <p className="mt-4 font-sans text-[0.9375rem] leading-[1.7] text-fgm/70">{p.d}</p>
               </Reveal>
             ))}
           </div>

@@ -28,7 +28,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="relative overflow-hidden bg-umber py-section text-paper">
+    <section className="relative overflow-hidden bg-contrast-2 py-section text-onc">
       <video
         className="absolute inset-0 h-full w-full object-cover opacity-[0.14]"
         autoPlay
@@ -41,7 +41,7 @@ export default function Process() {
       >
         <source src="/media/caustic.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-umber via-umber/90 to-umber" />
+      <div className="absolute inset-0 bg-gradient-to-b from-contrast-2 via-contrast-2/90 to-contrast-2" />
 
       <div className="shell relative">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
@@ -56,27 +56,27 @@ export default function Process() {
             />
           </div>
           <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
-            <p className="text-[1.0625rem] leading-[1.75] text-paper/60">
+            <p className="text-[1.0625rem] leading-[1.75] text-onc/60">
               The hardest part of therapy is almost always the part before it
               starts. This is designed to be as low-friction as it can honestly be.
             </p>
           </Reveal>
         </div>
 
-        <ol className="mt-16 grid gap-px overflow-hidden rounded-2xl bg-paper/12 md:grid-cols-3">
+        <ol className="mt-16 grid gap-px overflow-hidden rounded-2xl bg-surface/12 md:grid-cols-3">
           {steps.map((s, i) => (
             <Reveal
               key={s.n}
               as="li"
               delay={i * 110}
-              className="group relative bg-umber p-8 transition-colors duration-700 hover:bg-bark sm:p-10"
+              className="group relative bg-contrast-2 p-8 transition-colors duration-700 hover:bg-contrast-2 sm:p-10"
             >
               <span className="font-sans text-[0.6875rem] font-semibold tracking-[0.2em] text-sand/60">
                 {s.n}
               </span>
               <h3 className="mt-6 font-display text-[1.6rem] font-light leading-tight">{s.t}</h3>
-              <p className="mt-4 font-sans text-[0.9375rem] leading-[1.7] text-paper/60">{s.d}</p>
-              <p className="mt-7 border-t border-paper/12 pt-4 font-sans text-[0.75rem] uppercase tracking-[0.14em] text-sand/50">
+              <p className="mt-4 font-sans text-[0.9375rem] leading-[1.7] text-onc/60">{s.d}</p>
+              <p className="mt-7 border-t border-onc/12 pt-4 font-sans text-[0.75rem] uppercase tracking-[0.14em] text-sand/50">
                 {s.meta}
               </p>
             </Reveal>
@@ -91,7 +91,7 @@ export default function Process() {
           >
             <span>Request a consultation</span>
           </Link>
-          <Link href="/rates" className="link-sweep font-sans text-[0.875rem] text-paper/60">
+          <Link href="/rates" className="link-sweep font-sans text-[0.875rem] text-onc/60">
             See rates & insurance
           </Link>
         </Reveal>

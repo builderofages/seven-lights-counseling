@@ -10,7 +10,7 @@ export default function FaqPreview() {
   const picked = [faqs[0], faqs[3], faqs[6], faqs[7], faqs[10]];
 
   return (
-    <section className="relative bg-bone py-section">
+    <section className="relative bg-surface-2 py-section">
       <div className="shell grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Reveal>
@@ -22,7 +22,7 @@ export default function FaqPreview() {
             className="mt-6 font-display text-display-md font-light"
           />
           <Reveal delay={120}>
-            <p className="mt-6 max-w-[36ch] text-[1.0625rem] leading-[1.7] text-bark/70">
+            <p className="mt-6 max-w-[36ch] text-[1.0625rem] leading-[1.7] text-fgm/70">
               Answered plainly, including the ones about money.
             </p>
             <Link href="/faq" className="btn-ghost btn-md mt-8">

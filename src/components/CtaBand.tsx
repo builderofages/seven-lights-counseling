@@ -18,7 +18,7 @@ export default function CtaBand({
   location?: string;
 }) {
   return (
-    <section className="relative overflow-hidden bg-ink text-paper">
+    <section className="relative overflow-hidden bg-contrast text-onc">
       <video
         className="absolute inset-0 h-full w-full object-cover opacity-[0.32]"
         autoPlay
@@ -31,13 +31,13 @@ export default function CtaBand({
       >
         <source src="/media/dawn.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/80 to-scrim/60" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       <div className="shell relative py-section">
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <p className="eyebrow text-clay">{eyebrow}</p>
+            <p className="eyebrow text-accent">{eyebrow}</p>
           </Reveal>
           <SplitLines
             as="h2"
@@ -45,7 +45,7 @@ export default function CtaBand({
             className="mx-auto mt-7 max-w-[18ch] font-display text-display-lg font-light"
           />
           <Reveal delay={140}>
-            <p className="mx-auto mt-7 max-w-[54ch] text-lede text-paper/65">{body}</p>
+            <p className="mx-auto mt-7 max-w-[54ch] text-lede text-onc/65">{body}</p>
           </Reveal>
 
           <Reveal delay={200}>
@@ -53,7 +53,7 @@ export default function CtaBand({
               <Link
                   href={site.cta.primary.href}
                   onClick={() => track("cta_click", { location })}
-                  className="btn-primary btn-lg !bg-paper !text-ink"
+                  className="btn-primary btn-lg !bg-onc !text-scrim"
                 >
                   <span>Book a free consultation</span>
                 </Link>
@@ -61,7 +61,7 @@ export default function CtaBand({
                 <span>Call {site.contact.phone}</span>
               </a>
             </div>
-            <p className="mt-7 font-sans text-[0.8125rem] text-paper/40">
+            <p className="mt-7 font-sans text-[0.8125rem] text-onc/40">
               Replies within one business day · {site.contact.telehealthNote}
             </p>
           </Reveal>

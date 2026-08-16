@@ -50,7 +50,7 @@ export default function ServiceHero({
   const words = service.title.split(" ");
 
   return (
-    <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-ink text-paper">
+    <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-contrast text-onc">
       <div ref={media} className="absolute inset-0 will-change-transform">
         <video
           className="h-full w-full object-cover opacity-[0.42]"
@@ -72,8 +72,8 @@ export default function ServiceHero({
         className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.55] mix-blend-screen"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/50" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/35 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/75 to-scrim/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-scrim/90 via-scrim/35 to-transparent" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       {/* breathing light rail — the service's own lights, aligned */}
@@ -108,12 +108,12 @@ export default function ServiceHero({
           className="flex flex-wrap items-center gap-x-5 gap-y-2 transition-all duration-1000 ease-out"
           style={{ opacity: ready ? 1 : 0, transform: ready ? "none" : "translateY(12px)" }}
         >
-          <Link href="/services" className="link-sweep eyebrow text-paper/50">
+          <Link href="/services" className="link-sweep eyebrow text-onc/50">
             Services
           </Link>
-          <span className="eyebrow text-paper/25">/</span>
-          <span className="eyebrow text-clay">{service.index}</span>
-          <span className="eyebrow text-paper/50">{service.eyebrow}</span>
+          <span className="eyebrow text-onc/25">/</span>
+          <span className="eyebrow text-accent">{service.index}</span>
+          <span className="eyebrow text-onc/50">{service.eyebrow}</span>
         </div>
 
         <h1 className="mt-7 max-w-[16ch] font-display text-display-lg font-light">
@@ -134,7 +134,7 @@ export default function ServiceHero({
 
         <div className="mt-9 grid gap-10 lg:grid-cols-12 lg:items-end">
           <p
-            className="max-w-prose text-lede text-paper/72 transition-all duration-[1100ms] ease-out lg:col-span-6"
+            className="max-w-prose text-lede text-onc/72 transition-all duration-[1100ms] ease-out lg:col-span-6"
             style={{
               opacity: ready ? 1 : 0,
               transform: ready ? "none" : "translateY(18px)",
@@ -155,7 +155,7 @@ export default function ServiceHero({
             <Link
                 href="/begin"
                 onClick={() => track("cta_click", { location: `service_hero_${service.slug}` })}
-                className="btn-primary btn-lg !bg-paper !text-ink"
+                className="btn-primary btn-lg !bg-onc !text-scrim"
               >
                 <span>Book a free call</span>
               </Link>
@@ -167,9 +167,9 @@ export default function ServiceHero({
       </div>
 
       {/* engaged-lights strip (mobile) */}
-      <div className="relative border-t border-paper/12 lg:hidden">
+      <div className="relative border-t border-onc/12 lg:hidden">
         <div className="shell flex items-center gap-4 py-4">
-          <span className="eyebrow text-paper/35">Lights engaged</span>
+          <span className="eyebrow text-onc/35">Lights engaged</span>
           <span className="flex flex-wrap gap-2">
             {engaged.map((l) => (
               <span

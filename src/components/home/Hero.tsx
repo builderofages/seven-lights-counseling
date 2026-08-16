@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       ref={wrap}
-      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink text-paper"
+      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-contrast text-onc"
     >
       {/* ---- media ---- */}
       <div ref={media} className="absolute inset-0 will-change-transform">
@@ -54,8 +54,8 @@ export default function Hero() {
         </video>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/40" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-scrim via-scrim/60 to-scrim/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-scrim/70 via-transparent to-transparent" />
       <div className="grain pointer-events-none absolute inset-0 grain-light" />
 
       {/* ---- content ---- */}
@@ -78,7 +78,7 @@ export default function Hero() {
               />
             ))}
           </span>
-          <p className="eyebrow text-paper/60">
+          <p className="eyebrow text-onc/60">
             <span className="hidden sm:inline">Annapolis, Maryland · Telehealth statewide</span>
             <span className="sm:hidden">Annapolis, MD · Telehealth</span>
           </p>
@@ -102,7 +102,7 @@ export default function Hero() {
 
         <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:items-end">
           <p
-            className="max-w-prose text-lede text-paper/72 transition-all duration-[1100ms] ease-out lg:col-span-6"
+            className="max-w-prose text-lede text-onc/72 transition-all duration-[1100ms] ease-out lg:col-span-6"
             style={{
               opacity: ready ? 1 : 0,
               transform: ready ? "none" : "translateY(20px)",
@@ -126,7 +126,7 @@ export default function Hero() {
             <Link
                 href={site.cta.primary.href}
                 onClick={() => track("cta_click", { location: "hero_primary" })}
-                className="btn-primary btn-lg !bg-paper !text-ink"
+                className="btn-primary btn-lg !bg-onc !text-scrim"
               >
                 <span>Book a free 15-minute call</span>
               </Link>
@@ -142,8 +142,8 @@ export default function Hero() {
       </div>
 
       {/* ---- credibility rail ---- */}
-      <div className="relative border-t border-paper/12">
-        <div className="shell flex flex-wrap items-center justify-between gap-x-10 gap-y-4 py-5 font-sans text-[0.72rem] uppercase tracking-[0.16em] text-paper/45">
+      <div className="relative border-t border-onc/12">
+        <div className="shell flex flex-wrap items-center justify-between gap-x-10 gap-y-4 py-5 font-sans text-[0.72rem] uppercase tracking-[0.16em] text-onc/45">
           <span>Kerry Garrity, LCSW-C</span>
           <span className="hidden sm:inline">Trauma-informed · IFS · Somatic</span>
           <span className="hidden md:inline">Ages 18+</span>

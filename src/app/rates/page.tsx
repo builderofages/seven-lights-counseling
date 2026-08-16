@@ -77,13 +77,13 @@ export default function RatesPage() {
         lightIds={[3, 6]}
         seed={7}
       >
-        <Link href="/begin" className="btn-primary btn-lg !bg-paper !text-ink">
+        <Link href="/begin" className="btn-primary btn-lg !bg-onc !text-scrim">
           <span>Book a free consultation</span>
         </Link>
       </PageHero>
 
       {/* rates */}
-      <section className="bg-paper py-section">
+      <section className="bg-surface py-section">
         <div className="shell">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
@@ -97,34 +97,34 @@ export default function RatesPage() {
               />
             </div>
             <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
-              <p className="text-[1.0625rem] leading-[1.75] text-bark/70">
+              <p className="text-[1.0625rem] leading-[1.75] text-fgm/70">
                 Payment is due at the time of session by card or HSA/FSA card.
                 Cancellations with more than 24 hours&rsquo; notice are not charged.
               </p>
             </Reveal>
           </div>
 
-          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-ink/10 md:grid-cols-2">
+          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-scrim/10 md:grid-cols-2">
             {rates.map((r, i) => (
               <Reveal
                 key={r.t}
                 delay={(i % 2) * 90}
-                className="group bg-paper p-8 transition-colors duration-700 hover:bg-bone sm:p-10"
+                className="group bg-surface p-8 transition-colors duration-700 hover:bg-surface-2 sm:p-10"
               >
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-clay">
+                    <p className="font-sans text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-accent">
                       {r.tag}
                     </p>
-                    <h3 className="mt-4 font-display text-[1.55rem] font-light leading-tight text-ink">
+                    <h3 className="mt-4 font-display text-[1.55rem] font-light leading-tight text-fg">
                       {r.t}
                     </h3>
                   </div>
-                  <p className="shrink-0 font-display text-[2rem] font-light leading-none tracking-[-0.03em] text-ink">
+                  <p className="shrink-0 font-display text-[2rem] font-light leading-none tracking-[-0.03em] text-fg">
                     {r.p}
                   </p>
                 </div>
-                <p className="mt-5 max-w-[46ch] font-sans text-[0.9375rem] leading-[1.7] text-bark/70">
+                <p className="mt-5 max-w-[46ch] font-sans text-[0.9375rem] leading-[1.7] text-fgm/70">
                   {r.d}
                 </p>
               </Reveal>
@@ -132,10 +132,10 @@ export default function RatesPage() {
           </div>
 
           <Reveal delay={80}>
-            <div className="mt-10 grid gap-6 rounded-2xl border border-ink/10 bg-bone/60 p-8 md:grid-cols-2">
+            <div className="mt-10 grid gap-6 rounded-2xl border border-line/10 bg-surface-2/60 p-8 md:grid-cols-2">
               <div>
                 <p className="eyebrow">Reduced-fee places</p>
-                <p className="mt-4 max-w-[46ch] font-sans text-[0.9375rem] leading-[1.7] text-bark/75">
+                <p className="mt-4 max-w-[46ch] font-sans text-[0.9375rem] leading-[1.7] text-fgm/75">
                   A limited number of reduced-fee places are held at any given
                   time, prioritised for people for whom the standard fee is a
                   genuine barrier to care. Ask on the consultation call — it is a
@@ -144,7 +144,7 @@ export default function RatesPage() {
               </div>
               <div>
                 <p className="eyebrow">Accepted payment</p>
-                <p className="mt-4 max-w-[46ch] font-sans text-[0.9375rem] leading-[1.7] text-bark/75">
+                <p className="mt-4 max-w-[46ch] font-sans text-[0.9375rem] leading-[1.7] text-fgm/75">
                   All major cards, HSA and FSA cards, and bank transfer. Superbills
                   are issued monthly for out-of-network reimbursement. Seven Lights
                   does not bill insurers directly.
@@ -156,13 +156,13 @@ export default function RatesPage() {
       </section>
 
       {/* insurance walkthrough */}
-      <section className="relative overflow-hidden bg-ink py-section text-paper">
+      <section className="relative overflow-hidden bg-contrast py-section text-onc">
         <div className="grain pointer-events-none absolute inset-0 grain-light" />
         <div className="shell relative">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
               <Reveal>
-                <p className="eyebrow text-clay">Out of network</p>
+                <p className="eyebrow text-accent">Out of network</p>
               </Reveal>
               <SplitLines
                 as="h2"
@@ -171,7 +171,7 @@ export default function RatesPage() {
               />
             </div>
             <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
-              <p className="text-[1.0625rem] leading-[1.75] text-paper/60">
+              <p className="text-[1.0625rem] leading-[1.75] text-onc/60">
                 Being out of network keeps your record private, keeps session
                 length and treatment decisions clinical rather than administrative,
                 and means no diagnosis has to be filed with an insurer to justify
@@ -180,32 +180,32 @@ export default function RatesPage() {
             </Reveal>
           </div>
 
-          <ol className="mt-16 grid gap-px overflow-hidden rounded-2xl bg-paper/12 md:grid-cols-2 xl:grid-cols-4">
+          <ol className="mt-16 grid gap-px overflow-hidden rounded-2xl bg-surface/12 md:grid-cols-2 xl:grid-cols-4">
             {steps.map((s, i) => (
               <Reveal
                 key={s.n}
                 as="li"
                 delay={i * 90}
-                className="bg-ink p-8 transition-colors duration-700 hover:bg-umber"
+                className="bg-contrast p-8 transition-colors duration-700 hover:bg-contrast-2"
               >
-                <span className="font-sans text-[0.6875rem] font-semibold tracking-[0.2em] text-clay">
+                <span className="font-sans text-[0.6875rem] font-semibold tracking-[0.2em] text-accent">
                   {s.n}
                 </span>
                 <h3 className="mt-6 font-display text-[1.35rem] font-light leading-tight">{s.t}</h3>
-                <p className="mt-4 font-sans text-[0.9375rem] leading-[1.7] text-paper/60">{s.d}</p>
+                <p className="mt-4 font-sans text-[0.9375rem] leading-[1.7] text-onc/60">{s.d}</p>
               </Reveal>
             ))}
           </ol>
 
           <Reveal delay={80}>
-            <div className="mt-10 rounded-2xl border border-paper/15 bg-paper/[0.04] p-8">
-              <p className="eyebrow text-paper/45">Good Faith Estimate</p>
-              <p className="mt-4 max-w-[70ch] font-sans text-[0.9375rem] leading-[1.7] text-paper/70">
+            <div className="mt-10 rounded-2xl border border-onc/15 bg-surface/[0.04] p-8">
+              <p className="eyebrow text-onc/45">Good Faith Estimate</p>
+              <p className="mt-4 max-w-[70ch] font-sans text-[0.9375rem] leading-[1.7] text-onc/70">
                 Under the No Surprises Act, anyone who is uninsured or not using
                 insurance is entitled to a written Good Faith Estimate of expected
                 charges before care begins. One is issued automatically at intake,
                 and you can request one at any point beforehand.{" "}
-                <Link href="/good-faith-estimate" className="link-sweep font-medium text-paper">
+                <Link href="/good-faith-estimate" className="link-sweep font-medium text-onc">
                   Read the full notice
                 </Link>
                 .
@@ -216,7 +216,7 @@ export default function RatesPage() {
       </section>
 
       {/* money FAQs */}
-      <section className="bg-bone py-section">
+      <section className="bg-surface-2 py-section">
         <div className="shell grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Reveal>
@@ -228,7 +228,7 @@ export default function RatesPage() {
               className="mt-6 font-display text-display-md font-light"
             />
             <Reveal delay={120}>
-              <p className="mt-6 max-w-[36ch] text-[1.0625rem] leading-[1.7] text-bark/70">
+              <p className="mt-6 max-w-[36ch] text-[1.0625rem] leading-[1.7] text-fgm/70">
                 Nobody has ever been treated differently here for asking about
                 money.
               </p>
