@@ -4,7 +4,6 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import Reveal from "@/components/motion/Reveal";
 import SplitLines from "@/components/motion/SplitLines";
-import Magnetic from "@/components/motion/Magnetic";
 import { track } from "@/lib/analytics";
 
 export default function CtaBand({
@@ -51,15 +50,13 @@ export default function CtaBand({
 
           <Reveal delay={200}>
             <div className="mt-11 flex flex-wrap items-center justify-center gap-3">
-              <Magnetic strength={0.24}>
-                <Link
+              <Link
                   href={site.cta.primary.href}
                   onClick={() => track("cta_click", { location })}
                   className="btn-primary btn-lg !bg-paper !text-ink"
                 >
                   <span>Book a free consultation</span>
                 </Link>
-              </Magnetic>
               <a href={site.contact.phoneHref} className="btn-light btn-lg">
                 <span>Call {site.contact.phone}</span>
               </a>

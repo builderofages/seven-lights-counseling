@@ -23,7 +23,7 @@ export default function ParallaxColumns({
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (window.innerWidth < 768) return;
 
-    const rates = [-0.14, 0.1, -0.2];
+    const rates = [-0.05, 0.035, -0.07];
     let raf = 0;
 
     const loop = () => {
@@ -67,7 +67,7 @@ export default function ParallaxColumns({
                 alt={it.alt}
                 fill
                 sizes="(min-width:768px) 30vw, 46vw"
-                className="object-cover transition-transform duration-[1800ms] ease-out group-hover:scale-[1.07]"
+                className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.035]"
               />
               <span className="absolute inset-0 bg-ink/5 transition-opacity duration-700 group-hover:opacity-0" />
             </figure>

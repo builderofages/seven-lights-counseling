@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import type { Service } from "@/lib/services";
 import { lights } from "@/lib/lights";
 import ServiceAura from "@/components/service/ServiceAura";
-import Magnetic from "@/components/motion/Magnetic";
 import { site } from "@/lib/site";
 import { track } from "@/lib/analytics";
 
@@ -153,15 +152,13 @@ export default function ServiceHero({
               transitionDelay: "700ms",
             }}
           >
-            <Magnetic strength={0.24}>
-              <Link
+            <Link
                 href="/begin"
                 onClick={() => track("cta_click", { location: `service_hero_${service.slug}` })}
                 className="btn-primary btn-lg !bg-paper !text-ink"
               >
                 <span>Book a free call</span>
               </Link>
-            </Magnetic>
             <a href={site.contact.phoneHref} className="btn-light btn-lg">
               <span>{site.contact.phone}</span>
             </a>

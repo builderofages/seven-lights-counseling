@@ -42,7 +42,7 @@ export default function ImageMarquee({
               aria-hidden={i >= items.length}
               fill
               sizes="(min-width:640px) 26rem, 18rem"
-              className="object-cover transition-transform duration-[1600ms] ease-out hover:scale-[1.06]"
+              className="object-cover transition-transform duration-[700ms] ease-out hover:scale-[1.06]"
             />
           </figure>
         ))}

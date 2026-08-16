@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
-import Magnetic from "@/components/motion/Magnetic";
 import { track } from "@/lib/analytics";
 
 const SPECTRUM = ["#8C4A44", "#B0703F", "#BE9A4E", "#6E8663", "#4E7183", "#4B527B", "#6D5578"];
@@ -124,15 +123,13 @@ export default function Hero() {
               transitionDelay: "760ms",
             }}
           >
-            <Magnetic strength={0.24}>
-              <Link
+            <Link
                 href={site.cta.primary.href}
                 onClick={() => track("cta_click", { location: "hero_primary" })}
                 className="btn-primary btn-lg !bg-paper !text-ink"
               >
                 <span>Book a free 15-minute call</span>
               </Link>
-            </Magnetic>
             <Link
               href={site.cta.secondary.href}
               onClick={() => track("cta_click", { location: "hero_secondary" })}

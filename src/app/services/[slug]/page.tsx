@@ -238,7 +238,7 @@ export default async function ServicePage({
                       alt=""
                       fill
                       sizes="(min-width:768px) 30vw, 100vw"
-                      className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]"
+                      className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.035]"
                     />
                     <span className="absolute inset-0 bg-ink/10 transition-opacity duration-700 group-hover:opacity-0" />
                   </span>

@@ -45,7 +45,7 @@ export default function VideoTile({
     >
       <video
         ref={ref}
-        className="h-full w-full object-cover transition-transform duration-[1800ms] ease-out group-hover:scale-[1.05]"
+        className="h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.03]"
         muted
         loop
         playsInline

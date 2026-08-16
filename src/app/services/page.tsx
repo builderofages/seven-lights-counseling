@@ -46,7 +46,7 @@ export default function ServicesPage() {
                     alt={s.imageAlt}
                     fill
                     sizes="(min-width:1280px) 30vw, (min-width:768px) 46vw, 100vw"
-                    className="object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.07]"
+                    className="object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.035]"
                   />
                   <span className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent opacity-70 transition-opacity duration-700 group-hover:opacity-40" />
                   <span className="absolute left-5 top-5 rounded-full bg-paper/90 px-3 py-1 font-sans text-[0.625rem] font-semibold tracking-[0.16em] text-ink">

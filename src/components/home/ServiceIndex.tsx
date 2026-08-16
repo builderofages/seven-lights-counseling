@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { services } from "@/lib/services";
 import Reveal from "@/components/motion/Reveal";
 import SplitLines from "@/components/motion/SplitLines";
@@ -10,49 +10,13 @@ import { cn } from "@/lib/cn";
 
 /**
  * Editorial index of the practice's work.
- * On fine pointers a floating plate follows the cursor and cross-fades to the
- * hovered row's image; on touch the imagery collapses into the row itself.
+ *
+ * The imagery lives in a fixed, sticky frame in the right column and
+ * cross-fades to whichever row is active. Nothing tracks the cursor and
+ * nothing floats — the frame never moves, only its contents change.
  */
 export default function ServiceIndex() {
-  const [active, setActive] = useState<number | null>(null);
-  const plate = useRef<HTMLDivElement>(null);
-  const listRef = useRef<HTMLDivElement>(null);
-  const fine = useRef(false);
-
-  useEffect(() => {
-    fine.current = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (!fine.current) return;
-
-    let raf = 0;
-    let tx = 0,
-      ty = 0,
-      cx = 0,
-      cy = 0;
-
-    const loop = () => {
-      cx += (tx - cx) * 0.11;
-      cy += (ty - cy) * 0.11;
-      if (plate.current) {
-        plate.current.style.transform = `translate3d(${cx.toFixed(1)}px, ${cy.toFixed(1)}px, 0)`;
-      }
-      raf = requestAnimationFrame(loop);
-    };
-
-    const onMove = (e: MouseEvent) => {
-      const r = listRef.current?.getBoundingClientRect();
-      if (!r) return;
-      tx = e.clientX - r.left - 170;
-      ty = e.clientY - r.top - 120;
-    };
-
-    const node = listRef.current;
-    node?.addEventListener("mousemove", onMove);
-    raf = requestAnimationFrame(loop);
-    return () => {
-      node?.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
+  const [active, setActive] = useState(0);
 
   return (
     <section id="services" className="relative bg-paper py-section">
@@ -78,77 +42,100 @@ export default function ServiceIndex() {
           </Reveal>
         </div>
 
-        <div ref={listRef} className="relative mt-16">
-          {/* floating preview plate */}
-          <div
-            ref={plate}
-            aria-hidden="true"
-            className={cn(
-              "pointer-events-none absolute left-0 top-0 z-20 hidden h-[300px] w-[340px] overflow-hidden rounded-2xl transition-opacity duration-500 lg:block",
-              active === null ? "opacity-0" : "opacity-100",
-            )}
-          >
+        <div className="mt-16 grid gap-x-14 lg:grid-cols-12">
+          {/* ---- list ---- */}
+          <div className="lg:col-span-7">
+            <div className="rule" />
             {services.map((s, i) => (
-              <Image
-                key={s.slug}
-                src={s.image}
-                alt=""
-                fill
-                sizes="340px"
-                className={cn(
-                  "object-cover transition-opacity duration-500",
-                  active === i ? "opacity-100" : "opacity-0",
-                )}
-              />
-            ))}
-            <div className="absolute inset-0 bg-ink/10" />
-          </div>
+              <Reveal key={s.slug} delay={Math.min(i * 40, 220)}>
+                <Link
+                  href={`/services/${s.slug}`}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                  className="group relative flex items-center gap-5 border-b border-ink/[0.13] py-6 sm:gap-7"
+                >
+                  <span
+                    className={cn(
+                      "w-8 shrink-0 font-sans text-[0.6875rem] font-semibold tracking-[0.16em] transition-colors duration-500",
+                      active === i ? "text-clay" : "text-clay/45",
+                    )}
+                  >
+                    {s.index}
+                  </span>
 
-          <div className="rule" />
-          {services.map((s, i) => (
-            <Reveal key={s.slug} delay={Math.min(i * 45, 260)}>
-              <Link
-                href={`/services/${s.slug}`}
-                onMouseEnter={() => setActive(i)}
-                onMouseLeave={() => setActive(null)}
-                onFocus={() => setActive(i)}
-                onBlur={() => setActive(null)}
-                className="group relative flex items-center gap-5 border-b border-ink/[0.13] py-6 sm:gap-8 sm:py-8"
-              >
-                {/* hover wash */}
-                <span className="absolute inset-x-[-1.5rem] inset-y-0 -z-0 origin-bottom scale-y-0 rounded-lg bg-ink/[0.028] transition-transform duration-[560ms] ease-out group-hover:scale-y-100" />
+                  {/* mobile thumbnail — fixed in place, never floats */}
+                  <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg lg:hidden">
+                    <Image src={s.image} alt="" fill sizes="56px" className="object-cover" />
+                  </span>
 
-                <span className="relative z-10 w-8 shrink-0 font-sans text-[0.6875rem] font-semibold tracking-[0.16em] text-clay/70">
-                  {s.index}
-                </span>
-
-                <span className="relative z-10 min-w-0 flex-1">
-                  <span className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                    <span className="font-display text-[clamp(1.35rem,3.1vw,2.35rem)] font-light leading-[1.1] tracking-[-0.025em] text-ink transition-transform duration-[620ms] ease-out sm:group-hover:translate-x-2">
+                  <span className="min-w-0 flex-1">
+                    <span
+                      className={cn(
+                        "block font-display text-[clamp(1.25rem,2.5vw,1.95rem)] font-light leading-[1.14] tracking-[-0.025em] transition-colors duration-500",
+                        active === i ? "text-ink" : "text-ink/70",
+                      )}
+                    >
                       {s.title}
                     </span>
+                    <span className="mt-1.5 block font-sans text-[0.8125rem] uppercase tracking-[0.13em] text-bark/45">
+                      {s.eyebrow}
+                    </span>
                   </span>
-                  <span className="mt-2 block max-w-[58ch] font-sans text-[0.875rem] leading-relaxed text-bark/55 transition-transform duration-[620ms] ease-out sm:group-hover:translate-x-2 lg:max-w-[46ch]">
-                    {s.eyebrow} — {s.lede.split(" ").slice(0, 14).join(" ")}…
+
+                  <span
+                    className={cn(
+                      "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-500",
+                      active === i
+                        ? "border-ink bg-ink text-paper"
+                        : "border-ink/15 text-ink/60",
+                    )}
+                  >
+                    <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
                   </span>
-                </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
 
-                {/* touch image */}
-                <span className="relative z-10 hidden h-20 w-28 shrink-0 overflow-hidden rounded-lg sm:block lg:hidden">
-                  <Image src={s.image} alt="" fill sizes="112px" className="object-cover" />
-                </span>
+          {/* ---- sticky frame ---- */}
+          <div className="hidden lg:col-span-5 lg:block">
+            <div className="sticky top-28">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-bone">
+                {services.map((s, i) => (
+                  <Image
+                    key={s.slug}
+                    src={s.image}
+                    alt={active === i ? s.imageAlt : ""}
+                    aria-hidden={active !== i}
+                    fill
+                    sizes="(min-width:1024px) 40vw, 100vw"
+                    className={cn(
+                      "object-cover transition-opacity duration-[900ms] ease-out",
+                      active === i ? "opacity-100" : "opacity-0",
+                    )}
+                  />
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <p className="font-sans text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-paper/60">
+                    {services[active].index} · {services[active].duration}
+                  </p>
+                  <p className="mt-2.5 font-display text-[1.5rem] font-light leading-tight text-paper">
+                    {services[active].title}
+                  </p>
+                </div>
+              </div>
 
-                <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink transition-all duration-[560ms] ease-out group-hover:border-ink group-hover:bg-ink group-hover:text-paper">
-                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                  </svg>
-                </span>
-              </Link>
-            </Reveal>
-          ))}
+              <p className="mt-6 max-w-[42ch] font-sans text-[0.9375rem] leading-[1.7] text-bark/70">
+                {services[active].lede}
+              </p>
+            </div>
+          </div>
         </div>
 
-        <Reveal delay={100} className="mt-12 flex flex-wrap items-center gap-4">
+        <Reveal delay={100} className="mt-14 flex flex-wrap items-center gap-4">
           <Link href="/services" className="btn-ghost btn-lg">
             <span>All services in detail</span>
           </Link>

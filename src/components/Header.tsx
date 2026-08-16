@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { Wordmark, LogoMark } from "@/components/Logo";
-import Magnetic from "@/components/motion/Magnetic";
 import { cn } from "@/lib/cn";
 
 export default function Header() {
@@ -143,14 +142,12 @@ export default function Header() {
             >
               {site.contact.phone}
             </a>
-            <Magnetic strength={0.22} className="!hidden sm:!inline-flex">
-              <Link
+            <Link
                 href={site.cta.primary.href}
                 className={cn("btn-md", dark ? "btn-light" : "btn-primary")}
               >
                 <span>Book a consultation</span>
               </Link>
-            </Magnetic>
 
             <button
               type="button"
