@@ -54,7 +54,7 @@ export default function GfePage() {
 
       <section className="bg-surface py-section">
         <div className="shell grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-8 lg:col-start-3">
+          <div className="lg:col-span-9">
             {blocks.map((s, i) => (
               <Reveal key={s.t} delay={Math.min(i * 60, 200)} className={i > 0 ? "mt-14" : ""}>
                 <h2 className="font-display text-display-sm font-light text-fg">{s.t}</h2>

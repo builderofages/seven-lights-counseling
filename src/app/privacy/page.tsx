@@ -71,8 +71,8 @@ export default function PrivacyPage() {
       />
 
       <section className="bg-surface py-section">
-        <div className="shell grid gap-12 lg:grid-cols-12">
-          <nav className="lg:col-span-3">
+        <div className="shell grid gap-x-16 gap-y-12 lg:grid-cols-12">
+          <nav className="lg:col-span-3 lg:col-start-1">
             <Reveal>
               <p className="eyebrow lg:sticky lg:top-32">
                 <span className="block">On this page</span>
@@ -91,7 +91,7 @@ export default function PrivacyPage() {
             </Reveal>
           </nav>
 
-          <div className="lg:col-span-8 lg:col-start-5">
+          <div className="lg:col-span-8">
             {sections.map((s, i) => (
               <Reveal key={s.id} delay={Math.min(i * 50, 200)} className={i > 0 ? "mt-14" : ""}>
                 <div id={s.id} className="scroll-mt-32">
