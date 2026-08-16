@@ -1,46 +1,59 @@
 "use client";
 
 import { cn } from "@/lib/cn";
+import { lights } from "@/lib/lights";
 
 /**
  * SEVEN LIGHTS — identity mark.
  *
- * Seven horizontal strokes whose lengths are the chord widths of a circle at
- * seven evenly spaced heights. The circle is never drawn; the eye completes it.
+ * An archway built from seven nested arcs rising off a single baseline.
  *
- * It reads as a sun crossing a horizon, an eye, and a spectrum at once — and
- * because the geometry is derived rather than decorative, it holds together at
- * 16px and engraves cleanly in one colour.
+ * The arch is the idea: a threshold you walk through, which is what the
+ * slogan promises. Read outward it is growth — each arc a wider reach than
+ * the last. Read as light it is a halo of seven. It is drawn with one stroke
+ * weight on one baseline, so it engraves, embroiders, stamps in foil, and
+ * still resolves at 16px. The optional spectrum fill gives each arc one of
+ * the seven light colours without the mark ever becoming a rainbow.
  */
 
-const R = 12;
-const YS = [-9.6, -6.4, -3.2, 0, 3.2, 6.4, 9.6];
-const BARS = YS.map((y) => ({
-  y: 16 + y,
-  half: R * Math.sqrt(1 - (y / R) ** 2) * 0.9,
-}));
+const ARCS = [3.2, 4.6, 6.0, 7.4, 8.8, 10.2, 11.6];
+const BASE = 25.5;
+const CX = 16;
+
+function arcPath(r: number) {
+  return `M ${CX - r} ${BASE} A ${r} ${r} 0 0 1 ${CX + r} ${BASE}`;
+}
 
 export function LogoMark({
   className,
   animate = false,
+  spectrum = false,
 }: {
   className?: string;
   animate?: boolean;
+  spectrum?: boolean;
 }) {
   return (
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" className={cn(className)}>
-      <g stroke="currentColor" strokeWidth="1.15" strokeLinecap="round">
-        {BARS.map((b, i) => (
-          <line
-            key={i}
-            x1={16 - b.half}
-            y1={b.y}
-            x2={16 + b.half}
-            y2={b.y}
-            className={animate ? "logo-ray" : undefined}
-            style={animate ? ({ "--i": i, transformOrigin: "16px center" } as React.CSSProperties) : undefined}
+    <svg viewBox="0 0 32 30" fill="none" aria-hidden="true" className={cn(className)}>
+      <g strokeWidth="1.25" strokeLinecap="round">
+        {ARCS.map((r, i) => (
+          <path
+            key={r}
+            d={arcPath(r)}
+            stroke={spectrum ? lights[i].color : "currentColor"}
+            pathLength={1}
+            className={animate ? "logo-arc" : undefined}
+            style={animate ? ({ "--i": 6 - i } as React.CSSProperties) : undefined}
           />
         ))}
+        <line
+          x1={CX - 13.2}
+          y1={BASE}
+          x2={CX + 13.2}
+          y2={BASE}
+          stroke="currentColor"
+          opacity={0.45}
+        />
       </g>
     </svg>
   );
@@ -57,13 +70,13 @@ export function Wordmark({
 }) {
   return (
     <span className={cn("flex items-center gap-3.5", className)}>
-      <LogoMark className="h-[1.9em] w-auto shrink-0" animate={animate} />
+      <LogoMark className="h-[2.05em] w-auto shrink-0" animate={animate} />
       <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.02em] font-normal tracking-[0.16em]">
+        <span className="font-display text-[1.02em] font-normal tracking-[0.17em]">
           SEVEN LIGHTS
         </span>
         {!compact && (
-          <span className="mt-[0.38em] font-sans text-[0.4em] font-medium uppercase tracking-[0.48em] opacity-50">
+          <span className="mt-[0.4em] font-sans text-[0.4em] font-medium uppercase tracking-[0.5em] opacity-50">
             Counseling
           </span>
         )}
@@ -75,7 +88,7 @@ export function Wordmark({
 export function LogoStack({ className }: { className?: string }) {
   return (
     <div className={cn("flex flex-col items-center text-center", className)}>
-      <LogoMark className="h-12 w-auto" />
+      <LogoMark className="h-14 w-auto" spectrum />
       <span className="mt-6 font-display text-lg tracking-[0.34em]">SEVEN LIGHTS</span>
       <span className="mt-2.5 font-sans text-[0.6rem] font-medium uppercase tracking-[0.52em] opacity-50">
         Counseling

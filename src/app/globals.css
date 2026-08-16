@@ -338,14 +338,16 @@
 }
 
 /* Logo ray draw-in */
-.logo-ray {
-  transform: scaleX(0);
-  animation: rayIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: calc(var(--i) * 48ms + 120ms);
+/* arcs draw outward from the centre of the arch */
+.logo-arc {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: arcDraw 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i) * 55ms + 120ms);
 }
-@keyframes rayIn {
+@keyframes arcDraw {
   to {
-    transform: scaleX(1);
+    stroke-dashoffset: 0;
   }
 }
 
