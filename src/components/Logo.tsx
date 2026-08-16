@@ -14,10 +14,10 @@ import { cn } from "@/lib/cn";
  */
 
 const R = 12;
-const YS = [-9, -6, -3, 0, 3, 6, 9];
+const YS = [-9.6, -6.4, -3.2, 0, 3.2, 6.4, 9.6];
 const BARS = YS.map((y) => ({
   y: 16 + y,
-  half: R * Math.sqrt(1 - (y / R) ** 2) * 0.93,
+  half: R * Math.sqrt(1 - (y / R) ** 2) * 0.9,
 }));
 
 export function LogoMark({
@@ -29,7 +29,7 @@ export function LogoMark({
 }) {
   return (
     <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" className={cn(className)}>
-      <g stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
+      <g stroke="currentColor" strokeWidth="1.15" strokeLinecap="round">
         {BARS.map((b, i) => (
           <line
             key={i}

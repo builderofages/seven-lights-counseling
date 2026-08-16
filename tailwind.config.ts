@@ -56,7 +56,7 @@ export default {
       },
       spacing: {
         gutter: "clamp(1.25rem, 5vw, 5rem)",
-        section: "clamp(5rem, 11vw, 11rem)",
+        section: "clamp(4rem, 7.5vw, 7.5rem)",
       },
       transitionTimingFunction: {
         out: "cubic-bezier(0.16, 1, 0.3, 1)",
