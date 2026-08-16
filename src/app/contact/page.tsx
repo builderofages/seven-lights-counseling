@@ -30,7 +30,7 @@ export default function ContactPage() {
         </Link>
       </PageHero>
 
-      <section className="bg-surface py-section">
+      <section className="tint tint-5 bg-surface py-section">
         <div className="shell grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-6">
             <Reveal>

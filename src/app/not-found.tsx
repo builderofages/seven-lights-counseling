@@ -23,7 +23,7 @@ export default function NotFound() {
       <div className="shell relative text-center">
         <LogoMark className="mx-auto h-9 w-auto text-accent" animate />
         <p className="eyebrow mt-9 text-accent">404</p>
-        <h1 className="mt-6 font-display text-display-lg font-light">
+        <h1 className="mt-6 max-w-[19ch] font-display text-display-lg font-light">
           This page is not here.
         </h1>
         <p className="mx-auto mt-6 max-w-[46ch] text-lede text-onc/60">

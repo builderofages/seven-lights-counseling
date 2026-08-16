@@ -29,7 +29,7 @@ export default function Grounding() {
               className="mt-6 max-w-[16ch] font-display text-display-lg font-light"
             />
           </div>
-          <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
+          <Reveal delay={120} className="lg:col-span-5 lg:col-start-8">
             <p className="text-[1.0625rem] leading-[1.75] text-fgm/70">
               Insight that the nervous system cannot feel does not hold. So the
               work starts in the body — breath, weight, contact, pace — and the

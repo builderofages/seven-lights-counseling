@@ -73,7 +73,7 @@ export default function Manifesto() {
             </div>
           </div>
 
-          <div className="lg:col-span-4 lg:col-start-9">
+          <div className="lg:col-span-5 lg:col-start-8">
             <Reveal variant="fade" className="relative aspect-[3/4] overflow-hidden rounded-2xl">
               <Reveal variant="scale" className="absolute inset-0">
                 <Image

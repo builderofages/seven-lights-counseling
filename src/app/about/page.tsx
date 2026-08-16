@@ -45,7 +45,7 @@ export default function AboutPage() {
         </div>
       </PageHero>
 
-      <section className="bg-surface py-section">
+      <section className="tint tint-2 bg-surface py-section">
         <div className="shell grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Reveal variant="fade" className="relative aspect-[4/5] overflow-hidden rounded-2xl lg:sticky lg:top-28">

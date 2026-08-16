@@ -15,7 +15,7 @@ const credentials = [
 
 export default function KerryPreview() {
   return (
-    <section className="relative bg-surface py-section">
+    <section className="tint tint-2 relative bg-surface py-section">
       <div className="shell grid gap-14 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-5">
           <Reveal variant="fade" className="relative aspect-[4/5] overflow-hidden rounded-2xl">
@@ -38,7 +38,7 @@ export default function KerryPreview() {
           <SplitLines
             as="h2"
             text="Kerry Garrity, LCSW-C"
-            className="mt-6 font-display text-display-lg font-light"
+            className="mt-6 max-w-[19ch] font-display text-display-lg font-light"
           />
           <div className="prose-editorial mt-8 max-w-prose">
             <Reveal delay={60}>

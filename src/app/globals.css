@@ -5,18 +5,23 @@
 @layer base {
   :root,
   [data-theme="dark"] {
-    /* dark is the default surface — the imagery is the light source */
-    --c-surface: 17 15 13;
-    --c-surface-2: 25 21 18;
-    --c-contrast: 10 9 8;
-    --c-contrast-2: 32 27 23;
-    --c-fg: 240 234 224;
-    --c-fgm: 190 179 166;
-    --c-onc: 245 240 232;
-    --c-line: 240 234 224;
-    --c-accent: 190 152 99;
+    /* --- dark: warm charcoal with real tonal depth, not flat brown-black --- */
+    --c-base: 12 10 9;
+    --c-surface: 20 17 14;
+    --c-surface-2: 29 25 21;
+    --c-surface-3: 39 33 28;
+    --c-contrast: 9 8 7;
+    --c-contrast-2: 33 28 23;
+    --c-fg: 246 241 233;
+    --c-fgm: 174 162 148;
+    --c-onc: 248 244 237;
+    --c-line: 246 241 233;
+    --c-accent: 203 163 98;
+    --c-accent-2: 122 138 110;
+    --tint-strength: 0.09;
+    --glow: 0.14;
     --grain-blend: overlay;
-    --grain-opacity: 0.16;
+    --grain-opacity: 0.14;
     color-scheme: dark;
 
     --font-display: "Fraunces Variable", "Fraunces", Georgia, "Times New Roman", serif;
@@ -26,17 +31,23 @@
   }
 
   [data-theme="light"] {
-    --c-surface: 251 248 243;
-    --c-surface-2: 245 240 232;
-    --c-contrast: 20 16 14;
-    --c-contrast-2: 36 28 23;
-    --c-fg: 20 16 14;
-    --c-fgm: 74 60 50;
-    --c-onc: 245 240 232;
-    --c-line: 20 16 14;
-    --c-accent: 138 108 85;
+    /* --- light: warm ivory, never paper-white --- */
+    --c-base: 247 242 234;
+    --c-surface: 249 245 238;
+    --c-surface-2: 241 235 225;
+    --c-surface-3: 233 225 212;
+    --c-contrast: 22 18 15;
+    --c-contrast-2: 38 31 26;
+    --c-fg: 26 21 18;
+    --c-fgm: 92 80 69;
+    --c-onc: 248 244 237;
+    --c-line: 26 21 18;
+    --c-accent: 141 102 61;
+    --c-accent-2: 96 112 86;
+    --tint-strength: 0.055;
+    --glow: 0.07;
     --grain-blend: multiply;
-    --grain-opacity: 0.3;
+    --grain-opacity: 0.26;
     color-scheme: light;
   }
 
@@ -248,6 +259,42 @@
 }
 
 @layer utilities {
+  /* Each major band carries the temperature of one of the seven lights,
+     as a soft top-lit wash. Keeps the palette warm and varied without
+     ever reading as a colour block. */
+  .tint {
+    position: relative;
+    isolation: isolate;
+  }
+  .tint::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(120% 62% at 50% 0%, rgb(var(--tint) / var(--tint-strength)) 0%, transparent 68%),
+      radial-gradient(90% 55% at 88% 100%, rgb(var(--tint) / calc(var(--tint-strength) * 0.6)) 0%, transparent 70%);
+  }
+  .tint-1 { --tint: 168 92 86; }
+  .tint-2 { --tint: 196 124 74; }
+  .tint-3 { --tint: 205 168 92; }
+  .tint-4 { --tint: 122 148 112; }
+  .tint-5 { --tint: 92 126 148; }
+  .tint-6 { --tint: 92 100 140; }
+  .tint-7 { --tint: 126 100 136; }
+
+  /* soft light bloom behind display type */
+  .bloom { position: relative; }
+  .bloom::before {
+    content: "";
+    position: absolute;
+    inset: -30% -20%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(60% 60% at 20% 40%, rgb(var(--c-accent) / var(--glow)) 0%, transparent 70%);
+  }
+
   .text-balance {
     text-wrap: balance;
   }

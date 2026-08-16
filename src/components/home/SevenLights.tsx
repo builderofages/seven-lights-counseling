@@ -40,10 +40,10 @@ export default function SevenLights() {
             <SplitLines
               as="h2"
               text="One light bends into seven."
-              className="mt-6 font-display text-display-lg font-light"
+              className="mt-6 max-w-[19ch] font-display text-display-lg font-light"
             />
           </div>
-          <Reveal delay={140} className="lg:col-span-4 lg:col-start-9">
+          <Reveal delay={140} className="lg:col-span-5 lg:col-start-8">
             <p className="text-[1.0625rem] leading-[1.75] text-onc/65">
               A single map that keeps the work honest. Seven domains of a life —
               each one a place where things get stuck, each one treatable.

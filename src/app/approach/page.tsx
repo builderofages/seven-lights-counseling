@@ -100,7 +100,7 @@ export default function ApproachPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-4 lg:col-start-9">
+          <div className="lg:col-span-5 lg:col-start-8">
             <Reveal variant="fade" className="relative aspect-[3/4] overflow-hidden rounded-2xl">
               <Reveal variant="scale" className="absolute inset-0">
                 <Image
@@ -177,10 +177,10 @@ export default function ApproachPage() {
               <SplitLines
                 as="h2"
                 text="Six commitments, held in every session."
-                className="mt-6 font-display text-display-lg font-light"
+                className="mt-6 max-w-[19ch] font-display text-display-lg font-light"
               />
             </div>
-            <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
+            <Reveal delay={120} className="lg:col-span-5 lg:col-start-8">
               <p className="text-[1.0625rem] leading-[1.75] text-fgm/70">
                 These are not aspirations. If any of them stops being true of your
                 treatment, naming it is a legitimate use of a session.

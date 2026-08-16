@@ -8,7 +8,7 @@ import { practiceShots, groundingShots, humanShots } from "@/lib/gallery";
 
 export default function Atmosphere() {
   return (
-    <section className="relative overflow-hidden bg-surface-2 py-section">
+    <section className="tint tint-7 relative overflow-hidden bg-surface-2 py-section">
       <div className="shell">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -18,10 +18,10 @@ export default function Atmosphere() {
             <SplitLines
               as="h2"
               text="Grounded, warm, and unhurried."
-              className="mt-6 font-display text-display-lg font-light"
+              className="mt-6 max-w-[19ch] font-display text-display-lg font-light"
             />
           </div>
-          <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
+          <Reveal delay={120} className="lg:col-span-5 lg:col-start-8">
             <p className="text-[1.0625rem] leading-[1.75] text-fgm/70">
               A room that does not perform calm at you. Natural materials, real
               daylight, nothing clinical — because the body reads a space long

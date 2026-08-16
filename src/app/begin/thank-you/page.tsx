@@ -52,7 +52,7 @@ export default function ThankYouPage() {
           </Reveal>
           <Reveal delay={120}>
             <p className="eyebrow mt-9 text-accent">Received</p>
-            <h1 className="mt-6 font-display text-display-lg font-light">
+            <h1 className="mt-6 max-w-[19ch] font-display text-display-lg font-light">
               That was the hard part.
             </h1>
             <p className="mx-auto mt-7 max-w-[50ch] text-lede text-onc/65">

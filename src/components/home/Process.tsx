@@ -52,10 +52,10 @@ export default function Process() {
             <SplitLines
               as="h2"
               text="Three steps, and the first one costs nothing."
-              className="mt-6 font-display text-display-lg font-light"
+              className="mt-6 max-w-[19ch] font-display text-display-lg font-light"
             />
           </div>
-          <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
+          <Reveal delay={120} className="lg:col-span-5 lg:col-start-8">
             <p className="text-[1.0625rem] leading-[1.75] text-onc/60">
               The hardest part of therapy is almost always the part before it
               starts. This is designed to be as low-friction as it can honestly be.

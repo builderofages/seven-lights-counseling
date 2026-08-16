@@ -17,7 +17,7 @@ const lines = [
 
 export default function Recognise() {
   return (
-    <section className="relative overflow-hidden bg-surface-2 py-section">
+    <section className="tint tint-1 relative overflow-hidden bg-surface-2 py-section">
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">

@@ -8,6 +8,9 @@ export default {
         // semantic, theme-aware tokens
         surface: "rgb(var(--c-surface) / <alpha-value>)",
         "surface-2": "rgb(var(--c-surface-2) / <alpha-value>)",
+        "surface-3": "rgb(var(--c-surface-3) / <alpha-value>)",
+        base: "rgb(var(--c-base) / <alpha-value>)",
+        "accent-2": "rgb(var(--c-accent-2) / <alpha-value>)",
         contrast: "rgb(var(--c-contrast) / <alpha-value>)",
         "contrast-2": "rgb(var(--c-contrast-2) / <alpha-value>)",
         fg: "rgb(var(--c-fg) / <alpha-value>)",

@@ -83,7 +83,7 @@ export default function RatesPage() {
       </PageHero>
 
       {/* rates */}
-      <section className="bg-surface py-section">
+      <section className="tint tint-3 bg-surface py-section">
         <div className="shell">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
@@ -93,10 +93,10 @@ export default function RatesPage() {
               <SplitLines
                 as="h2"
                 text="Four numbers. That is the whole schedule."
-                className="mt-6 font-display text-display-lg font-light"
+                className="mt-6 max-w-[19ch] font-display text-display-lg font-light"
               />
             </div>
-            <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
+            <Reveal delay={120} className="lg:col-span-5 lg:col-start-8">
               <p className="text-[1.0625rem] leading-[1.75] text-fgm/70">
                 Payment is due at the time of session by card or HSA/FSA card.
                 Cancellations with more than 24 hours&rsquo; notice are not charged.
@@ -167,10 +167,10 @@ export default function RatesPage() {
               <SplitLines
                 as="h2"
                 text="How to find out what your plan will actually pay."
-                className="mt-6 font-display text-display-lg font-light"
+                className="mt-6 max-w-[19ch] font-display text-display-lg font-light"
               />
             </div>
-            <Reveal delay={120} className="lg:col-span-4 lg:col-start-9">
+            <Reveal delay={120} className="lg:col-span-5 lg:col-start-8">
               <p className="text-[1.0625rem] leading-[1.75] text-onc/60">
                 Being out of network keeps your record private, keeps session
                 length and treatment decisions clinical rather than administrative,
@@ -216,7 +216,7 @@ export default function RatesPage() {
       </section>
 
       {/* money FAQs */}
-      <section className="bg-surface-2 py-section">
+      <section className="tint tint-3 bg-surface-2 py-section">
         <div className="shell grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Reveal>

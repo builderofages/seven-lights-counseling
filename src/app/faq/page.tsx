@@ -42,7 +42,7 @@ export default function FaqPage() {
         </Link>
       </PageHero>
 
-      <section className="bg-surface py-section">
+      <section className="tint tint-6 bg-surface py-section">
         <div className="shell grid gap-x-16 gap-y-14 lg:grid-cols-12">
           {/* rail: navigation + a live CTA, so the column is never empty */}
           <aside className="lg:col-span-3">
