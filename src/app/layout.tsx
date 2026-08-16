@@ -121,12 +121,12 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{var t=localStorage.getItem('sl-theme')||'dark';document.documentElement.dataset.theme=t}catch(e){}",
+              "try{var t=localStorage.getItem('sl-theme')||'light';document.documentElement.dataset.theme=t}catch(e){}",
           }}
         />
       </head>

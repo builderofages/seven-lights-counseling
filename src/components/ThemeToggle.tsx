@@ -6,10 +6,10 @@ import { cn } from "@/lib/cn";
 type Theme = "dark" | "light";
 
 export default function ThemeToggle({ className }: { className?: string }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const stored = (localStorage.getItem("sl-theme") as Theme | null) ?? "dark";
+    const stored = (localStorage.getItem("sl-theme") as Theme | null) ?? "light";
     setTheme(stored);
   }, []);
 
@@ -26,7 +26,7 @@ export default function ThemeToggle({ className }: { className?: string }) {
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       className={cn(
-        "flex h-10 w-10 items-center justify-center rounded-full border border-onc/20 text-onc/70 transition-colors duration-500 hover:border-onc/50 hover:text-onc",
+        "flex h-10 w-10 items-center justify-center rounded-full border border-current text-current opacity-45 transition-opacity duration-500 hover:opacity-100",
         className,
       )}
     >

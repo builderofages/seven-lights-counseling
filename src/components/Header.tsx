@@ -64,7 +64,7 @@ export default function Header() {
   };
 
   // every page opens on a dark, filmic hero, so the bar is always light-on-dark
-  const dark = true;
+  const dark = !scrolled && !mega;
 
   return (
     <>
@@ -80,7 +80,7 @@ export default function Header() {
           "fixed inset-x-0 top-0 z-[90] transition-[transform,background-color,backdrop-filter,border-color] duration-[650ms] ease-out",
           hidden ? "-translate-y-full" : "translate-y-0",
           scrolled || mega
-            ? "border-b border-onc/10 bg-contrast/80 backdrop-blur-xl"
+            ? "border-b border-line/12 bg-surface/85 backdrop-blur-xl"
             : "border-b border-transparent",
         )}
         onMouseLeave={closeMega}
@@ -151,7 +151,7 @@ export default function Header() {
                 <span>Book a consultation</span>
               </Link>
 
-            <ThemeToggle className="hidden sm:flex" />
+            <ThemeToggle className={cn("hidden sm:flex", dark ? "text-onc" : "text-fg")} />
 
             <button
               type="button"
@@ -175,7 +175,7 @@ export default function Header() {
           onMouseEnter={openMega}
           onMouseLeave={closeMega}
           className={cn(
-            "pointer-events-none absolute inset-x-0 top-full hidden origin-top border-b border-onc/10 bg-contrast/95 backdrop-blur-xl transition-all duration-[560ms] ease-out lg:block",
+            "pointer-events-none absolute inset-x-0 top-full hidden origin-top border-b border-line/12 bg-surface/96 backdrop-blur-xl transition-all duration-[560ms] ease-out lg:block",
             mega ? "pointer-events-auto opacity-100" : "-translate-y-3 opacity-0",
           )}
           aria-hidden={!mega}
@@ -200,7 +200,7 @@ export default function Header() {
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="group flex items-start gap-4 rounded-xl px-3 py-3 transition-colors hover:bg-onc/[0.06]"
+                  className="group flex items-start gap-4 rounded-xl px-3 py-3 transition-colors hover:bg-fg/[0.045]"
                 >
                   <span className="mt-[3px] font-sans text-[0.625rem] font-semibold tracking-[0.14em] text-accent/70">
                     {s.index}
