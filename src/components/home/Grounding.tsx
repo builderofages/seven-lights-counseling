@@ -16,7 +16,7 @@ const films = [
 
 export default function Grounding() {
   return (
-    <section className="relative overflow-hidden bg-surface py-section">
+    <section className="tint tint-5 relative overflow-hidden bg-surface py-section">
       <div className="shell">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">

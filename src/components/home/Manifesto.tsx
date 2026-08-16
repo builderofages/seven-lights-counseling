@@ -17,7 +17,7 @@ const marks = [
 
 export default function Manifesto() {
   return (
-    <section className="relative bg-surface">
+    <section className="tint tint-3 relative bg-surface">
       {/* marquee of modalities */}
       <div className="mask-fade-x relative overflow-hidden border-y border-line/10 py-4">
         <div className="flex w-max animate-marquee gap-12 whitespace-nowrap will-change-transform">
